@@ -70,10 +70,13 @@ class CustomAuthController extends Controller
             'phone' => 'required|min:11|max:13|unique:users,phone',
             'paypal_email'=>'nullable|min:5|max:50|email|unique:users,paypal_email',
             'password' => 'required|min:6|confirmed',
+            'refid'=>'nullable|unique:users,affiliate_id',
         ]);
 
         $data = $request->all();
         $checkPaypal=$this->phone_paypal_check($data['phone'],$data['paypal_email']);
+        $data['affiliate_id']=$data['refid']??null;
+        unset($data['refid']);
         if($checkPaypal=='Success'){
             $check = $this->create($data);
             Session::put('status', 'success');

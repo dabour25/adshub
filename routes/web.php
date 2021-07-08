@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\admin\MainController as AdminMainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,10 @@ Route::group(['prefix'=>'/auth'], function(){
 });
 
 Route::resource('/contact',ContactController::class);
+
+Route::group(['prefix'=>'/admin','middleware'=>['auth','adminCheck']], function(){
+    Route::get('/', [AdminMainController::class, 'index']);
+});
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

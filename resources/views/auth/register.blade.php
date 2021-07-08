@@ -57,6 +57,7 @@
                 <label>Password Confirm</label>
                 <input type="password" name="password_confirmation" class="form-control">
                 <br>
+                <input type="hidden" name="refid" value="{{$_GET['refid']??''}}">
                 <button class="btn btn-primary" type="submit">Register</button>
             </form>
         </div>
