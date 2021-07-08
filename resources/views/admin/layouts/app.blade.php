@@ -82,10 +82,10 @@
                 <i class="fas fa-user-circle fa-fw"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">Settings</a>
-                <a class="dropdown-item" href="#">Activity Log</a>
+                <a class="dropdown-item" href="/">Back to site</a>
+                <a class="dropdown-item" href="/admin/settings">Settings</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+                <a class="dropdown-item" href="/auth/logout">Logout</a>
             </div>
         </li>
     </ul>
@@ -117,13 +117,12 @@
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-fw fa-folder"></i>
-                <span>User</span>
+                <i class="fas fa-fw fa-dollar-sign"></i>
+                <span>Money</span>
             </a>
             <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                <a class="dropdown-item" href="adduser1.html">Add User</a>
-                <a class="dropdown-item" href="edituser1.html">Edit User</a>
-                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/admin/transactions/create">Create Transaction</a>
+                <a class="dropdown-item" href="/admin/transactions">Show Transactions</a>
             </div>
         </li>
         <li class="nav-item dropdown">
@@ -177,7 +176,7 @@
                 <footer class="sticky-footer">
                     <div class="container my-auto">
                         <div class="copyright text-center my-auto">
-                            <span>Copyright © Your Website 2018</span>
+                            <span>Copyright © AdsHub 2021</span>
                         </div>
                     </div>
                 </footer>
