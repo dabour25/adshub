@@ -17,7 +17,7 @@ class CreateTransactionsTable extends Migration
             $table->id();
             $table->string('transaction_id',60)->unique();
             $table->text('comment')->nullable();
-            $table->enum('transaction_type',['deposite','withdraw']);
+            $table->enum('transaction_type',['deposit','withdraw']);
             $table->double('amount',10,3);
             $table->double('new_balance',14,3);
             $table->bigInteger('user_id',false,true);

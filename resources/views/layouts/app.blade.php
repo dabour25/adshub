@@ -81,6 +81,9 @@
                         @if(auth()->user())
                             <li><a href="/transactions">Balance: {{auth()->user()->balance}} L.E</a></li>
                             <li><a href="/profile">Profile</a> </li>
+                            @if(auth()->user()->user_status=='admin')
+                                <li><a href="/admin">Admin Dashboard</a></li>
+                            @endif
                             <li><a href="/auth/logout">Logout</a></li>
                         @else
                             <li><a href="/auth/login">Login</a></li>
