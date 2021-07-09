@@ -23,4 +23,8 @@ class TransactionsController extends Controller
         session()->push('m','Transaction Created Successfully');
         return back();
     }
+    public function index(TransactionsService $transactionsService){
+        $transactions=$transactionsService->getTransactions();
+        return view('admin.transactions.index',compact('transactions'));
+    }
 }

@@ -45,8 +45,10 @@ class CustomAuthController extends Controller
         if (Auth::attempt($credentials)) {
             if(Auth::user()->user_status=='admin'){
                 return redirect('/admin');
+            }elseif(Auth::user()->user_status=='blocked'){
+                return redirect('/logout');
             }
-            return redirect('/dashboard');
+            return redirect('/');
         }
         Session::put('status', 'danger');
         Session::put('message', 'Login details are not valid');

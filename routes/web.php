@@ -19,6 +19,9 @@ use App\Http\Controllers\admin\TransactionsController as AdminTransactionsContro
 */
 
 Route::get('/', [MainController::class,'index']);
+Route::get('/login',[MainController::class,'redirectHome']);
+Route::get('/register',[MainController::class,'redirectHome']);
+
 Route::group(['prefix'=>'/auth'], function(){
     Route::get('/login', [CustomAuthController::class, 'index']);
     Route::post('/login', [CustomAuthController::class, 'customLogin']);

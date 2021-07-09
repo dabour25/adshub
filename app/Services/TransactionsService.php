@@ -4,10 +4,16 @@ namespace App\Services;
 
 use App\Models\Contact;
 use App\Models\Transaction;
-use App\Models\User;
 use Illuminate\Support\Str;
 
 class TransactionsService{
+    public function getTransactions($user_id=null){
+        if($user_id){
+            return Transaction::where('user_id',$user_id)->orderBy('id','desc')->limit('50')->get();
+        }else{
+            return Transaction::orderBy('id','desc')->paginate(50);
+        }
+    }
     public function createTransaction($data){
         $userService=new UsersService();
         $checkUser=$userService->getUser($data['user_id']);

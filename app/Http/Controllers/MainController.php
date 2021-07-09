@@ -12,4 +12,7 @@ class MainController extends Controller
         $statistics_Data['users']=User::count();
         return view('welcome',compact('page','statistics_Data'));
     }
+    public function redirectHome(){
+        return redirect('/');
+    }
 }
