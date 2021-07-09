@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class CustomAuthController extends Controller
 {
@@ -78,6 +79,7 @@ class CustomAuthController extends Controller
         $data = $request->all();
         $checkPaypal=$this->phone_paypal_check($data['phone'],$data['paypal_email']);
         $data['affiliate_id']=$data['refid']??null;
+        $data['slug']=Str::slug(substr($data['name'],0,3).'-'.Str::random(6).rand(100,999));
         unset($data['refid']);
         if($checkPaypal=='Success'){
             $check = $this->create($data);
@@ -100,7 +102,8 @@ class CustomAuthController extends Controller
             'email' => $data['email'],
             'phone' => $data['phone'],
             'paypal_email' =>$data['paypal_email'],
-            'password' => Hash::make($data['password'])
+            'password' => Hash::make($data['password']),
+            'slug' => $data['slug'],
         ]);
     }
 
