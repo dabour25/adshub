@@ -56,10 +56,20 @@
                 @endif
                 <label>Password Confirm</label>
                 <input type="password" name="password_confirmation" class="form-control">
-                <br>
                 <input type="hidden" name="refid" value="{{$_GET['refid']??''}}">
-                <button class="btn btn-primary" type="submit">Register</button>
+                <input type="checkbox" id="terms" onclick="termsCheck()">Agree Our <a href="/terms" target="_blank">terms and conditions</a>
+                <br>
+                <button class="btn btn-primary" type="submit" disabled id="register">Register</button>
             </form>
         </div>
     </section>
+    <script>
+        function termsCheck() {
+           if(document.getElementById('terms').checked){
+               document.getElementById("register").disabled = false;
+           } else{
+               document.getElementById("register").disabled = true;
+           }
+        }
+    </script>
 @stop

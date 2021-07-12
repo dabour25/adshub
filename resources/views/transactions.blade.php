@@ -18,6 +18,7 @@
 
     <section class="inner-page">
         <div class="container">
+            <a href="/cash-request" class="btn btn-success my-1">New Request</a>
             <div class="row">
                 <div class="col-md-5 card p-3">Your Final Balance: {{auth()->user()->balance}} EGP</div>
                 <div class="col-md-2"></div>

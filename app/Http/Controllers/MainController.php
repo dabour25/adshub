@@ -12,6 +12,10 @@ class MainController extends Controller
         $statistics_Data['users']=User::count();
         return view('welcome',compact('page','statistics_Data'));
     }
+    public function terms(){
+        $page="Terms & Conditions";
+        return view('terms',compact('page'));
+    }
     public function redirectHome(){
         return redirect('/');
     }

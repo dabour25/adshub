@@ -66,10 +66,8 @@
         <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
                 <li><a class="nav-link scrollto active" href="/">Home</a></li>
-                <li><a class="nav-link scrollto" href="#about">About</a></li>
-                <li><a class="nav-link scrollto" href="#services">Services</a></li>
-                <li><a class="nav-link scrollto" href="#departments">Departments</a></li>
-                <li><a class="nav-link scrollto" href="#doctors">Doctors</a></li>
+                <li><a class="nav-link scrollto" href="/manual">How to use</a></li>
+                <li><a class="nav-link scrollto" href="/terms">Terms&Conditions</a></li>
                 <li class="dropdown"><a href="#"><span>{{auth()->user()?auth()->user()->name:'User'}}</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         {{--<li class="dropdown"><a href="#"><span>User</span> <i class="bi bi-chevron-right"></i></a>--}}

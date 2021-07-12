@@ -5,6 +5,7 @@ use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TransactionsController;
+use App\Http\Controllers\RequestsController;
 use App\Http\Controllers\admin\MainController as AdminMainController;
 use App\Http\Controllers\admin\TransactionsController as AdminTransactionsController;
 
@@ -32,7 +33,9 @@ Route::group(['prefix'=>'/auth'], function(){
 });
 
 Route::resource('/contact',ContactController::class);
+Route::get('/terms',[MainController::class,'terms']);
 Route::get('/transactions',[TransactionsController::class,'index'])->middleware('auth');
+Route::resource('/cash-request',RequestsController::class)->middleware('auth');
 
 Route::group(['prefix'=>'/admin','middleware'=>['auth','adminCheck']], function(){
     Route::get('/', [AdminMainController::class, 'index']);
