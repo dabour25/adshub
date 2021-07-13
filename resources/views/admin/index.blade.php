@@ -19,9 +19,13 @@
                         <div class="card-body-icon">
                             <i class="fas fa-fw fa-comments"></i>
                         </div>
+                            @if($messages_count!=0)
+                            <div class="mr-5">{{$messages_count}} New Messages</div>
+                            @else
                             <div class="mr-5">No New Messages</div>
+                            @endif
                     </div>
-                    <a class="card-footer text-white clearfix small z-1" href="/admindb/messages">
+                    <a class="card-footer text-white clearfix small z-1" href="/admin/messages">
                         <span class="float-left">View Details</span>
                         <span class="float-right">
                 <i class="fas fa-angle-right"></i>
@@ -35,10 +39,14 @@
                         <div class="card-body-icon">
                             <i class="fas fa-fw fa-list"></i>
                         </div>
-                            <div class="mr-5">No New Ads</div>
+                        @if($requests_count!=0)
+                            <div class="mr-5">{{$requests_count}} New Requests</div>
+                        @else
+                            <div class="mr-5">No New Requests</div>
+                        @endif
                     </div>
-                    <a class="card-footer text-white clearfix small z-1" href="/admindb/approve">
-                        <span class="float-left">Check Ads</span>
+                    <a class="card-footer text-white clearfix small z-1" href="/admin/requests">
+                        <span class="float-left">View Requests</span>
                         <span class="float-right">
                 <i class="fas fa-angle-right"></i>
               </span>

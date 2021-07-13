@@ -43,18 +43,42 @@
                     @endif
                     <label>Select Payment Method</label>
                     <select class="form-control {{$errors->has('method')?'border-danger':''}}" name="method">
-                        <option value="vf cash" {{old('method')=='vf cash'?'selected':''}}>Vodafone cash</option>
+                        @if(substr(auth()->user()->phone,0,3)=='010'||substr(auth()->user()->phone,0,5)=='+2010')
+                        <option value="vf_cash" {{old('method')=='vf cash'?'selected':''}}>Vodafone cash</option>
+                        @endif
+                        @if(!empty(auth()->user()->paypal_email))
                         <option value="paypal" {{old('method')=='paypal'?'selected':''}}>Paypal</option>
+                        @endif
                     </select>
                     @if ($errors->has('method'))
                         <div class="text-danger" role="alert">
                             {{ $errors->first('method') }}
                         </div>
                     @endif
+                    <div>
+                        <ul>
+                            @if(substr(auth()->user()->phone,0,3)!='010')
+                                <li>Your registered Paypal account is: {{auth()->user()->paypal_email}}</li>
+                            @elseif(substr(auth()->user()->phone,0,5)!='+2010')
+                                <li>Your registered Paypal account is: {{auth()->user()->paypal_email}}</li>
+                            @else
+                                <li>Your registered Vodafone cash number is: {{auth()->user()->phone}}</li>
+                            @endif
+                            <li>if any data wasn't real plz change it before request</li>
+                        </ul>
+                    </div>
                     <br>
                     <button class="btn btn-primary" type="submit">Make Request</button>
                 </form>
             @endif
+            <span class="card m-2">
+                <h4>Notes !</h4>
+                <ul>
+                    <li>Minimum withdraw amount 50 EGP and Maximum 1000 EGP</li>
+                    <li>Minimum Deposit amount 20 EGP and Maximum 3000 EGP</li>
+                    <li>All transactions Completed or canceled within 48 Hours</li>
+                </ul>
+            </span>
         </div>
     </section>
 @stop
