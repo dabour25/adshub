@@ -9,7 +9,7 @@
                     <a href="/admin">Dashboard</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="/requests">Requests</a>
+                    <a href="/admin/requests">Requests</a>
                 </li>
                 <li class="breadcrumb-item active">Request: {{$request_data->request_id}}</li>
             </ol>
@@ -44,6 +44,7 @@
                     <h4><strong>User Phone:</strong> {{$request_data->user->phone}}</h4>
                 </div>
             </div>
+            @if($request_data->request_status==0)
             <form action="/admin/requests" method="post">
                 @csrf
                 @if($request_data->reason=='deposit')
@@ -53,8 +54,11 @@
                 <input type="hidden" value="{{$request_data->request_id}}" name="request_id">
                 <br>
                 <button type="submit" class="btn btn-primary">Make Transaction</button>
-                <a href="/cancel-request/{{$request_data->request_id}}" class="btn btn-danger">Cancel Request</a>
+                <a href="/admin/cancel-request/{{$request_data->request_id}}" class="btn btn-danger">Cancel Request</a>
             </form>
+            @else
+                <h4 class="my-3">Request Status: <span style="color:{{$request_data->request_status==1?'green':'red'}};">{{$request_data->request_status==1?'Approved':'Canceled'}}</span></h4>
+            @endif
         </div>
     </div>
 @stop

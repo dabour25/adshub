@@ -21,6 +21,7 @@ class createRequestsTable extends Migration
             $table->enum('method',['vf-cash','paypal'])->nullable();
             $table->bigInteger('user_id',false,true);
             $table->boolean('seen')->default(false);
+            $table->tinyInteger('request_status')->default(0)->comment('0: no action,1:approved,2:canceled');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

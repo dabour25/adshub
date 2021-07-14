@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\UserData;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Hash;
@@ -16,7 +17,8 @@ class FirstAdminSeeder extends Seeder
      */
     public function run()
     {
-        User::create($this->admin_data());
+        $user=User::create($this->admin_data());
+        UserData::create(['user_id'=>$user->id]);
     }
     public function admin_data(){
         return [

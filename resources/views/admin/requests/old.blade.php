@@ -9,7 +9,7 @@
                 <li class="breadcrumb-item">
                     <a href="/admin">Dashboard</a>
                 </li>
-                <li class="breadcrumb-item active">Requests</li>
+                <li class="breadcrumb-item active">Old Requests</li>
             </ol>
 
             <!-- Page Content -->
@@ -33,7 +33,7 @@
             <div class="container">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <h4>New Requests</h4> <a href="/admin/old-requests" class="btn btn-primary my-2">See Old Requests</a>
+                        <h4>New Requests</h4> <a href="/admin/requests" class="btn btn-primary my-2">See New Requests</a>
                         <table class="table table-dark">
                             <thead>
                             <tr>
@@ -47,7 +47,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($newRequests as $k=>$newRequest)
+                            @foreach($oldRequests as $k=>$newRequest)
                                 <tr>
                                     <th scope="row">{{$k+1}}</th>
                                     <td>
@@ -66,7 +66,7 @@
                         </table>
                     </div>
                 </div>
-                {{ $newRequests->links() }}
+                {{ $oldRequests->links() }}
             </div>
         </div>
     </div>

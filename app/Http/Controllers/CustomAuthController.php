@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\UserData;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -19,6 +20,10 @@ class CustomAuthController extends Controller
             }
         }
         return 'Success';
+    }
+
+    public function getUser($slug){
+        return User::where('slug',$slug)->first();
     }
 
     public function index()
@@ -79,10 +84,12 @@ class CustomAuthController extends Controller
         $data = $request->all();
         $checkPaypal=$this->phone_paypal_check($data['phone'],$data['paypal_email']);
         $data['affiliate_id']=$data['refid']??null;
+        $data['affiliate_id']=$this->getUser($data['affiliate_id'])->id??null;
         $data['slug']=Str::slug(substr($data['name'],0,3).'-'.Str::random(6).rand(100,999));
         unset($data['refid']);
         if($checkPaypal=='Success'){
             $check = $this->create($data);
+            UserData::create(['user_id'=>$check->id]);
             Session::put('status', 'success');
             Session::put('message', 'Registered Successfully, You can now login');
             return redirect("/auth/login");
@@ -108,13 +115,15 @@ class CustomAuthController extends Controller
     }
 
 
-    public function dashboard()
+    public function profile()
     {
-        if(Auth::check()){
-            return view('dashboard');
-        }
+        $page='Profile';
+        return view('profile.show',compact('page'));
+    }
 
-        return redirect("login")->withSuccess('You are not allowed to access');
+    public function profileEdit(){
+        $page='Edit Profile';
+        return view('profile.edit',compact('page'));
     }
 
 

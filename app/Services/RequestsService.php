@@ -12,10 +12,22 @@ use Illuminate\Support\Str;
 class RequestsService{
     public function getNewRequests($user_id=null){
         if($user_id){
-            return Request::where('user_id',$user_id)->orderBy('id','desc')->limit(50)->get();
+            return Request::where('user_id',$user_id)->where('seen',0)->orderBy('id','desc')->limit(50)->get();
         }else{
-            return Request::orderBy('id','desc')->paginate(30);
+            return Request::orderBy('id','desc')->where('seen',0)->paginate(30);
         }
+    }
+    public function getOldRequests($user_id=null){
+        if($user_id){
+            return Request::where('user_id',$user_id)->where('seen',1)->orderBy('id','desc')->limit(50)->get();
+        }else{
+            return Request::orderBy('id','desc')->where('seen',1)->paginate(30);
+        }
+    }
+    public function convertToSeen($request_id){
+        $request=$this->getRequest($request_id);
+        $request->seen=1;
+        $request->save();
     }
     public function getRequest($request_id){
         return Request::where('request_id',$request_id)->first();
@@ -60,6 +72,8 @@ class RequestsService{
     }
     public function approveRequest($data){
         $request=Request::where('request_id',$data['request_id'])->first();
+        $request->request_status=1;
+        $request->save();
         if($request['reason']=='deposit'){
             if($data['amount']==0||empty($data['amount'])){
                 return false;
@@ -88,6 +102,8 @@ class RequestsService{
     }
     public function cancelRequest($data){
         $request=Request::where('request_id',$data['request_id'])->first();
+        $request->request_status=2;
+        $request->save();
         if($request['reason']=='deposit'){
             User::where('id',Auth::user()->id)->update(['pending_balance'=>0]);
         }else{

@@ -18,7 +18,12 @@ class RequestsController extends Controller
     }
     public function show($request_id,RequestsService $requestsService){
         $request_data=$requestsService->getRequest($request_id);
+        $requestsService->convertToSeen($request_id);
         return view('admin.requests.show',compact('request_data'));
+    }
+    public function oldRequests(RequestsService $requestsService){
+        $oldRequests=$requestsService->getOldRequests();
+        return view('admin.requests.old',compact('oldRequests'));
     }
 
     public function store(Request $request,RequestsService $requestsService){

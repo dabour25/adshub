@@ -26,7 +26,7 @@ Route::get('/login',[MainController::class,'redirectHome']);
 Route::get('/register',[MainController::class,'redirectHome']);
 
 Route::group(['prefix'=>'/auth'], function(){
-    Route::get('/login', [CustomAuthController::class, 'index']);
+    Route::get('/login', [CustomAuthController::class, 'index'])->name('login');
     Route::post('/login', [CustomAuthController::class, 'customLogin']);
     Route::get('/register', [CustomAuthController::class, 'registration']);
     Route::post('/register', [CustomAuthController::class, 'customRegistration']);
@@ -37,12 +37,15 @@ Route::resource('/contact',ContactController::class);
 Route::get('/terms',[MainController::class,'terms']);
 Route::get('/transactions',[TransactionsController::class,'index'])->middleware('auth');
 Route::resource('/cash-request',RequestsController::class)->middleware('auth');
+Route::get('/profile',[CustomAuthController::class,'profile'])->middleware('auth');
+Route::get('/profile/edit',[CustomAuthController::class,'profileEdit'])->middleware('auth');
 
 Route::group(['prefix'=>'/admin','middleware'=>['auth','adminCheck']], function(){
     Route::get('/', [AdminMainController::class, 'index']);
     Route::resource('/transactions', AdminTransactionsController::class);
     Route::resource('/requests', AdminRequestsController::class);
     Route::get('/cancel-request/{request_id}', [AdminRequestsController::class,'cancelRequest']);
+    Route::get('/old-requests', [AdminRequestsController::class,'oldRequests']);
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

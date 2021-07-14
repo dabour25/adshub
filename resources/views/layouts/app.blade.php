@@ -28,7 +28,7 @@
 
     <!-- Template Main CSS File -->
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- =======================================================
     * Template Name: Medilab - v4.3.0
     * Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
@@ -65,10 +65,13 @@
 
         <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
-                <li><a class="nav-link scrollto active" href="/">Home</a></li>
+                <li><a class="nav-link scrollto" href="/">Home</a></li>
                 <li><a class="nav-link scrollto" href="/manual">How to use</a></li>
-                <li><a class="nav-link scrollto" href="/terms">Terms&Conditions</a></li>
-                <li class="dropdown"><a href="#"><span>{{auth()->user()?auth()->user()->name:'User'}}</span> <i class="bi bi-chevron-down"></i></a>
+                <li><a class="nav-link scrollto {{$page=='Terms & Conditions'?'active':''}}" href="/terms">Terms&Conditions</a></li>
+                <li class="dropdown">
+                    <a href="#" class="{{$page=='Login'||$page=='Registration'||$page=='Profile'||$page=='Transactions'||$page=='New Request'?'active':''}}">
+                        <span>{{auth()->user()?auth()->user()->name:'User'}}</span> <i class="bi bi-chevron-down"></i>
+                    </a>
                     <ul>
                         {{--<li class="dropdown"><a href="#"><span>User</span> <i class="bi bi-chevron-right"></i></a>--}}
                         {{--<ul>--}}
@@ -89,7 +92,7 @@
                         @endif
                     </ul>
                 </li>
-                <li><a class="nav-link scrollto" href="/contact">Contact</a></li>
+                <li><a class="nav-link scrollto {{$page=='Contact Us'?'active':''}}" href="/contact">Contact</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
