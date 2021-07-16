@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\UserData;
+use App\Requests\ChangePasswordValidator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use function Symfony\Component\String\b;
 
 class CustomAuthController extends Controller
 {
@@ -123,9 +125,38 @@ class CustomAuthController extends Controller
 
     public function profileEdit(){
         $page='Edit Profile';
-        return view('profile.edit',compact('page'));
+        $user_data=UserData::where('user_id',Auth::user()->id)->first();
+        if(!$user_data){
+            $user_data['country']=$user_data['city']=$user_data['age']=$user_data['nationality']
+            =$user_data['gender']=$user_data['address']=null;
+        }
+        return view('profile.edit',compact('page','user_data'));
     }
 
+    public function profileUpdate(Request $request){
+        $data=$request->except('_token');
+        $user_data=UserData::where('user_id',Auth::user()->id)->first();
+        if(!$user_data){
+            $data['user_id']=Auth::user()->id;
+            UserData::create($data);
+        }else{
+            UserData::where('id',$user_data->id)->update($data);
+        }
+        return back();
+    }
+
+    public function changePassword(ChangePasswordValidator $changePasswordValidator){
+        $data=$changePasswordValidator->request()->except('_token');
+        if(!Hash::check($data['old_password'],Auth::user()->getAuthPassword())){
+            Session::put('status', 'danger');
+            Session::put('message', 'Old Password Not Match Our Records');
+            return back();
+        }
+        User::where('id',Auth::user()->id)->update(['password'=>Hash::make($data['password'])]);
+        Session::put('status', 'success');
+        Session::put('message', 'Password Changed Successfully');
+        return back();
+    }
 
     public function signOut() {
         Session::flush();

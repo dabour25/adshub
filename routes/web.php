@@ -9,6 +9,7 @@ use App\Http\Controllers\RequestsController;
 use App\Http\Controllers\admin\MainController as AdminMainController;
 use App\Http\Controllers\admin\TransactionsController as AdminTransactionsController;
 use App\Http\Controllers\admin\RequestsController as AdminRequestsController;
+use App\Http\Controllers\admin\UsersController as AdminUsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,8 @@ Route::get('/transactions',[TransactionsController::class,'index'])->middleware(
 Route::resource('/cash-request',RequestsController::class)->middleware('auth');
 Route::get('/profile',[CustomAuthController::class,'profile'])->middleware('auth');
 Route::get('/profile/edit',[CustomAuthController::class,'profileEdit'])->middleware('auth');
+Route::post('/profile/edit',[CustomAuthController::class,'profileUpdate'])->middleware('auth');
+Route::post('/change-password',[CustomAuthController::class,'changePassword'])->middleware('auth');
 
 Route::group(['prefix'=>'/admin','middleware'=>['auth','adminCheck']], function(){
     Route::get('/', [AdminMainController::class, 'index']);
@@ -46,6 +49,7 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','adminCheck']], function(
     Route::resource('/requests', AdminRequestsController::class);
     Route::get('/cancel-request/{request_id}', [AdminRequestsController::class,'cancelRequest']);
     Route::get('/old-requests', [AdminRequestsController::class,'oldRequests']);
+    Route::resource('/users', AdminUsersController::class);
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
