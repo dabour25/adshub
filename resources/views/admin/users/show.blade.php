@@ -53,7 +53,7 @@
             <h4><strong>nationality:</strong> {{$user->user_data->nationality}}</h4>
             <h4><strong>Interests:</strong> {{$user->user_data->interests}}</h4>
             <br>
-            <a href="/users/{{$user->slug}}/edit" class="btn btn-primary">Edit</a>
+            <a href="/admin/users/{{$user->slug}}/edit" class="btn btn-primary">Edit</a>
         </div>
     </div>
 @stop

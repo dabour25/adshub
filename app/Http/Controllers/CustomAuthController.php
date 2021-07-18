@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\UserData;
 use App\Requests\ChangePasswordValidator;
+use App\Services\UsersService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -14,15 +15,6 @@ use function Symfony\Component\String\b;
 
 class CustomAuthController extends Controller
 {
-
-    private function phone_paypal_check($phone,$paypal){
-        if($paypal==''){
-            if((substr($phone,0,3)!='010')&&(substr($phone,0,5)!='+2010')){
-                return 'If there are no paypal account , you must enter vodafone cash number';
-            }
-        }
-        return 'Success';
-    }
 
     public function getUser($slug){
         return User::where('slug',$slug)->first();
@@ -72,7 +64,7 @@ class CustomAuthController extends Controller
     }
 
 
-    public function customRegistration(Request $request)
+    public function customRegistration(Request $request,UsersService $usersService)
     {
         $request->validate([
             'name' => 'required|min:6|max:50',
@@ -84,7 +76,7 @@ class CustomAuthController extends Controller
         ]);
 
         $data = $request->all();
-        $checkPaypal=$this->phone_paypal_check($data['phone'],$data['paypal_email']);
+        $checkPaypal=$usersService->phone_paypal_check($data['phone'],$data['paypal_email']);
         $data['affiliate_id']=$data['refid']??null;
         $data['affiliate_id']=$this->getUser($data['affiliate_id'])->id??null;
         $data['slug']=Str::slug(substr($data['name'],0,3).'-'.Str::random(6).rand(100,999));

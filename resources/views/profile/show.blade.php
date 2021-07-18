@@ -134,7 +134,7 @@
                                                 <h6 class="mb-0">Country</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                {{auth()->user()->userData->country??'--'}}
+                                                {{auth()->user()->user_data->country??'--'}}
                                             </div>
                                         </div>
                                         <hr>
@@ -143,7 +143,7 @@
                                                 <h6 class="mb-0">City</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                {{auth()->user()->userData->city??'--'}}
+                                                {{auth()->user()->user_data->city??'--'}}
                                             </div>
                                         </div>
                                         <hr>
@@ -152,7 +152,7 @@
                                                 <h6 class="mb-0">Address</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                {{auth()->user()->userData->address??'--'}}
+                                                {{auth()->user()->user_data->address??'--'}}
                                             </div>
                                         </div>
                                         <hr>
@@ -161,7 +161,7 @@
                                                 <h6 class="mb-0">Birth Date</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                {{auth()->user()->userData->age??'--'}}
+                                                {{auth()->user()->user_data->age??'--'}}
                                             </div>
                                         </div>
                                         <hr>
@@ -170,7 +170,7 @@
                                                 <h6 class="mb-0">Nationality</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                {{auth()->user()->userData->nationality??'--'}}
+                                                {{auth()->user()->user_data->nationality??'--'}}
                                             </div>
                                         </div>
                                         <hr>
@@ -179,7 +179,7 @@
                                                 <h6 class="mb-0">Gender</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                {{auth()->user()->userData->gender??'--'}}
+                                                {{auth()->user()->user_data->gender??'--'}}
                                             </div>
                                         </div>
                                         <hr>
@@ -188,7 +188,7 @@
                                                 <h6 class="mb-0">Interests</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                {{auth()->user()->userData->interests??'--'}}
+                                                {{auth()->user()->user_data->interests??'--'}}
                                             </div>
                                         </div>
                                         <hr>
