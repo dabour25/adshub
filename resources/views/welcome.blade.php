@@ -94,7 +94,7 @@
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
 
-        <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Create new </span> Ad</a>
+        <a href="/create-ad" class="appointment-btn scrollto"><span class="d-none d-md-inline">Create new </span> Ad</a>
 
     </div>
 </header><!-- End Header -->

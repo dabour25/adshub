@@ -36,6 +36,11 @@
                     <h4><strong>Email:</strong> {{$user->email}}</h4>
                     <h4><strong>Paypal Account:</strong> {{$user->paypal_email}}</h4>
                     <h4><strong>Phone:</strong> {{$user->phone}}</h4>
+                    <h4><strong>Affiliate:</strong>
+                        <a href="/admin/users/{{$user->user_affiliate->slug??''}}">
+                            {{$user->user_affiliate->slug??'--'}}
+                        </a>
+                    </h4>
                 </div>
                 <div class="col-md-6">
                     <h4><strong>User Name:</strong> {{$user->name}}</h4>

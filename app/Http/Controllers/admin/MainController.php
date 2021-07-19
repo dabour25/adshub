@@ -16,4 +16,9 @@ class MainController extends Controller
         $requests_count=\App\Models\Request::where('seen',0)->count();
         return view('admin.index',compact('usercount','messages_count','requests_count'));
     }
+    public function messages(){
+        $messages=Contact::orderBy('id','desc')->paginate(50);
+        Contact::where('seen',0)->update(['seen'=>1]);
+        return view('admin.messages',compact('messages'));
+    }
 }

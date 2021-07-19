@@ -70,4 +70,7 @@ class User extends Authenticatable
     public function user_data(){
         return $this->belongsTo(UserData::class,'id','user_id');
     }
+    public function user_affiliate(){
+        return $this->belongsTo(User::class,'id','affiliate_id');
+    }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TransactionsController;
 use App\Http\Controllers\RequestsController;
+use App\Http\Controllers\AdsController;
 use App\Http\Controllers\admin\MainController as AdminMainController;
 use App\Http\Controllers\admin\TransactionsController as AdminTransactionsController;
 use App\Http\Controllers\admin\RequestsController as AdminRequestsController;
@@ -42,9 +43,11 @@ Route::get('/profile',[CustomAuthController::class,'profile'])->middleware('auth
 Route::get('/profile/edit',[CustomAuthController::class,'profileEdit'])->middleware('auth');
 Route::post('/profile/edit',[CustomAuthController::class,'profileUpdate'])->middleware('auth');
 Route::post('/change-password',[CustomAuthController::class,'changePassword'])->middleware('auth');
+Route::get('/create-ad',[AdsController::class,'index'])->middleware('auth');
 
 Route::group(['prefix'=>'/admin','middleware'=>['auth','adminCheck']], function(){
     Route::get('/', [AdminMainController::class, 'index']);
+    Route::get('/messages', [AdminMainController::class, 'messages']);
     Route::resource('/transactions', AdminTransactionsController::class);
     Route::resource('/requests', AdminRequestsController::class);
     Route::get('/cancel-request/{request_id}', [AdminRequestsController::class,'cancelRequest']);
