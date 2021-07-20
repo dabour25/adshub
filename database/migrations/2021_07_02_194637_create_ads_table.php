@@ -26,6 +26,8 @@ class CreateAdsTable extends Migration
             $table->enum('ad_type',['image','page','video','youtube','post']);
             $table->text('ad_view');
             $table->text('link')->nullable();
+            $table->boolean('seen')->default(false);
+            $table->boolean('approved')->default(false);
 
             $table->bigInteger('by_user',false,true);
             $table->timestamps();

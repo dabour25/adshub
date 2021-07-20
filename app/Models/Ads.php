@@ -21,6 +21,8 @@ class Ads extends Model
         'ad_type',
         'link',
         'ad_view',
+        'seen',
+        'approved',
         'by_user',
     ];
 }
