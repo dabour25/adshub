@@ -44,6 +44,7 @@ Route::get('/profile/edit',[CustomAuthController::class,'profileEdit'])->middlew
 Route::post('/profile/edit',[CustomAuthController::class,'profileUpdate'])->middleware('auth');
 Route::post('/change-password',[CustomAuthController::class,'changePassword'])->middleware('auth');
 Route::get('/create-ad',[AdsController::class,'index'])->middleware('auth');
+Route::post('/create-ad',[AdsController::class,'store'])->middleware('auth');
 
 Route::group(['prefix'=>'/admin','middleware'=>['auth','adminCheck']], function(){
     Route::get('/', [AdminMainController::class, 'index']);

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Requests\Contact\ContactValidator;
+use App\Requests\Ads\CreateAdValidator;
+use App\Services\AdsService;
 use App\Services\ContactService;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class AdsController extends Controller
@@ -14,10 +14,16 @@ class AdsController extends Controller
         return view('create_ad',compact('page'));
     }
 
-    public function store(ContactValidator $contactValidator,ContactService $contactService){
-        $contactService->createMessage($contactValidator->request()->except('_token'));
+    public function store(CreateAdValidator $adValidator,AdsService $adsService){
+        $data=$adValidator->request()->except('_token');
+        $response=$adsService->createAd($data);
+        if($response!="success"){
+            Session::put('status', 'danger');
+            Session::put('message', $response);
+            return back()->withInput($adValidator->request()->input());
+        }
         Session::put('status', 'success');
-        Session::put('message', 'Message Sent to admin successfully');
+        Session::put('message', 'Ad Created, Waiting Admin Approval');
         return back();
     }
 }
