@@ -15,8 +15,7 @@ class AdsController extends Controller
     }
 
     public function store(CreateAdValidator $adValidator,AdsService $adsService){
-        $data=$adValidator->request()->except('_token');
-        $response=$adsService->createAd($data);
+        $response=$adsService->createAd($adValidator);
         if($response!="success"){
             Session::put('status', 'danger');
             Session::put('message', $response);

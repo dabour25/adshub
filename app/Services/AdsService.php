@@ -16,13 +16,24 @@ class AdsService{
         $data['user_id']=Auth::user()->id;
         $transactionService->createTransaction($data);
     }
-    public function createAd($data){
+    public function createAd($request){
+        $data=$request->request()->except('_token');
         $type=$data['ad_type'];
         if($data['total_cost']>Auth::user()->balance){
             return "You Haven't enough balance";
         }
         if($type=='image'){
-
+            $data['slug']="ADI-".rand(10,99).Auth::user()->id.Str::random(4);
+            $data['available_cost']=$data['total_cost'];
+            $data["by_user"]=Auth::user()->id;
+            $extension=$request->request()->file('ad_view')->getClientOriginalExtension();
+            $path=public_path('/images/ads_images');
+            $image_name =$data['slug'].'.'.$extension;
+            $request->request()->file('ad_view')->move($path,$image_name);
+            $data['ad_view']=$image_name;
+            Ads::create($data);
+            $this->createTransaction($data['total_cost']);
+            return 'success';
         }elseif($type=='page'){
             $data['link']=$data['ad_view'];
             $data['slug']="ADP-".rand(10,99).Auth::user()->id.Str::random(4);
@@ -32,7 +43,13 @@ class AdsService{
             $this->createTransaction($data['total_cost']);
             return 'success';
         }elseif($type=="youtube"){
-
+            $data['link']=$data['link']??$data['ad_view'];
+            $data['slug']="ADY-".rand(10,99).Auth::user()->id.Str::random(4);
+            $data['available_cost']=$data['total_cost'];
+            $data["by_user"]=Auth::user()->id;
+            Ads::create($data);
+            $this->createTransaction($data['total_cost']);
+            return 'success';
         }else{
             return "Unsupported Type";
         }
