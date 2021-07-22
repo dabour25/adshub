@@ -59,7 +59,7 @@
 <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-        <h1 class="logo me-auto"><a href="/"><img src="{{asset('/assets/img/adshub-logo.png')}}" width="150px;"></a></h1>
+        <h1 class="logo me-auto"><a href="/"><img src="{{asset('/assets/img/adshub-logo-tiny.png')}}" width="60px;"></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -232,7 +232,7 @@
                 <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
                     <div class="count-box">
                         <i class="fa fa-money-bill"></i>
-                        <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1" class="purecounter"></span>
+                        <span data-purecounter-start="0" data-purecounter-end="{{$statistics_Data['totalAds']}}" data-purecounter-duration="1" class="purecounter"></span>
                         <p>Total Ads</p>
                     </div>
                 </div>

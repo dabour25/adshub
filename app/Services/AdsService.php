@@ -71,4 +71,23 @@ class AdsService{
             return "Unsupported Type";
         }
     }
+    public function approveAd($data){
+        $ad=Ads::where('slug',$data['ad_id'])->first();
+        $ad->approved=2;
+        $ad->seen=1;
+        $ad->save();
+        return true;
+    }
+    public function rejectAd($ad_id){
+        $ad=Ads::where('slug',$ad_id)->first();
+        $ad->approved=1;
+        $ad->seen=1;
+        $ad->save();
+        $transactionService=new TransactionsService();
+        $transaction['comment']="Rejected Ad";
+        $transaction['user_id']=$ad->by_user;
+        $transaction['amount']=$ad->total_cost;
+        $transaction['transaction_type']="deposit";
+        $transactionService->createTransaction($transaction);
+    }
 }

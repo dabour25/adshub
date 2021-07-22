@@ -57,6 +57,7 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','adminCheck']], function(
     Route::resource('/users', AdminUsersController::class);
     Route::resource('/ads', AdminAdsController::class);
     Route::get('/old-ads', [AdminAdsController::class,'oldAds']);
+    Route::get('/cancel-ad/{ad_id}', [AdminAdsController::class,'rejectAd']);
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

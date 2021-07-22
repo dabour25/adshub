@@ -10,7 +10,8 @@
 --------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
-  color: #444444;
+  color: #dcdcdc;
+    background-color: #636363;
 }
 
 a {
@@ -114,7 +115,7 @@ h1, h2, h3, h4, h5, h6 {
 # Top Bar
 --------------------------------------------------------------*/
 #topbar {
-  background: #fff;
+  background: #1b1b1b;
   height: 40px;
   font-size: 14px;
   transition: all 0.5s;
@@ -127,7 +128,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #topbar .contact-info a {
   line-height: 1;
-  color: #444444;
+  color: #e4e4e4;
   transition: 0.3s;
 }
 
@@ -166,7 +167,7 @@ h1, h2, h3, h4, h5, h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-  background: #fff;
+  background: #1b1b1b;
   transition: all 0.5s;
   z-index: 997;
   padding: 15px 0;
@@ -212,7 +213,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .appointment-btn:hover {
-  background: #166ab5;
+  background: #b56b0d;
   color: #fff;
 }
 
@@ -256,7 +257,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: space-between;
   font-size: 14px;
-  color: #2c4964;
+  color: #ffffff;
   white-space: nowrap;
   transition: 0.3s;
   border-bottom: 2px solid #fff;
@@ -271,7 +272,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
   color: #f8981e;
-  border-color: #1977cc;
+  border-color: #f8981e;
 }
 
 .navbar .dropdown ul {
@@ -466,11 +467,11 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   line-height: 56px;
   text-transform: uppercase;
-  color: #2c4964;
+  color: #f8981e;
 }
 
 #hero h2 {
-  color: #2c4964;
+  color: #f8981e;
   margin: 10px 0 0 0;
   font-size: 24px;
 }
@@ -582,7 +583,7 @@ section {
 --------------------------------------------------------------*/
 .breadcrumbs {
   padding: 20px 0;
-  background-color: #f1f7fd;
+  background-color: #252525;
   min-height: 40px;
   margin-top: 120px;
 }
@@ -644,7 +645,7 @@ section {
   padding: 30px;
   background: #f8981e;
   border-radius: 4px;
-  color: #fff;
+  color: #272727;
 }
 
 .why-us .content h3 {
@@ -678,7 +679,7 @@ section {
 .why-us .icon-boxes .icon-box {
   text-align: center;
   border-radius: 10px;
-  background: #fff;
+  background: #1b1b1b;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   padding: 40px 30px;
   width: 100%;
@@ -755,7 +756,7 @@ section {
 }
 
 .about .icon-box .title a {
-  color: #343a40;
+  color: #ffffff;
   transition: 0.3s;
 }
 
@@ -874,7 +875,7 @@ section {
 # Counts
 --------------------------------------------------------------*/
 .counts {
-  background: #f1f7fd;
+  background: #313131;
   padding: 70px 0 60px;
 }
 
@@ -883,7 +884,7 @@ section {
   width: 100%;
   position: relative;
   text-align: center;
-  background: #fff;
+  background: #2b2b2b;
 }
 
 .counts .count-box i {
@@ -906,7 +907,7 @@ section {
   font-size: 36px;
   display: block;
   font-weight: 600;
-  color: #082744;
+  color: #ffffff;
 }
 
 .counts .count-box p {

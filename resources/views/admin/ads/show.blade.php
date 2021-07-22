@@ -34,20 +34,23 @@
                 <div class="col-md-6">
                     <h4><strong>Ad Slug:</strong> {{$ad_data->slug}}</h4>
                     <h4><strong>Title:</strong> {{$ad_data->title}}</h4>
-                    <h4><strong>Total Cost:</strong> {{$ad_data->total_cost}}</h4>
-                    <h4><strong>Available Cost:</strong> {{$ad_data->available_cost}}</h4>
-                    <h4><strong>Spent Cost:</strong> {{$ad_data->spent_cost}}</h4>
+                    <h4><strong>Total Cost:</strong> {{$ad_data->total_cost}} EGP</h4>
+                    <h4><strong>Available Cost:</strong> {{$ad_data->available_cost}} EGP</h4>
+                    <h4><strong>Spent Cost:</strong> {{$ad_data->spent_cost}} EGP</h4>
+                    <h4><strong>Views:</strong> {{$ad_data->views}}</h4>
                 </div>
                 <div class="col-md-6">
                     <h4><strong>User Name:</strong> {{$ad_data->user->name}}</h4>
                     <h4><strong>User Email:</strong> {{$ad_data->user->email}}</h4>
                     <h4><strong>User Paypal:</strong> {{$ad_data->user->paypal_email??'--'}}</h4>
                     <h4><strong>User Phone:</strong> {{$ad_data->user->phone}}</h4>
+                    <h4><strong>Clicks:</strong> {{$ad_data->clicks}}</h4>
+                    <h4><strong>Max Time:</strong> {{$ad_data->max_time}} S</h4>
                 </div>
             </div>
             <hr>
             @if($ad_data->ad_type=='image')
-                <img src="{{asset('/images/ads')}}/{{$ad_data->ad_view}}" style="max-width: 300px;">
+                <img src="{{asset('/images/ads_images')}}/{{$ad_data->ad_view}}" style="max-width: 300px;">
                 <h4><strong>Link:</strong>{{$ad_data->link??'--'}}</h4>
             @elseif($ad_data->ad_type=='page')
                 <a href="#" onclick="openAd()" class="btn btn-primary">Open</a>
@@ -70,6 +73,25 @@
             </script>
                 <h4><strong>Link:</strong>{{$ad_data->link??'--'}}</h4>
             @elseif($ad_data->ad_type=='youtube')
+                <a href="#" onclick="openAd()" class="btn btn-primary">Open Video</a>
+                <script>
+                    function openAd() {
+                        var ad_window=window.open('{{$ad_data->ad_view}}','newwindow','width=800,height=500');
+                        var time=0;
+                        let refreshIntervalId=setInterval(function () {
+                            if(ad_window.closed){
+                                alert('window is closed');
+                                clearInterval(refreshIntervalId);
+                            }
+                            if(time>={{$ad_data->max_time*1000}}){
+                                ad_window.close();
+                                clearInterval(refreshIntervalId);
+                            }
+                            time+=10;
+                        },10);
+                    }
+                </script>
+                <h4><strong>Link:</strong>{{$ad_data->link??'--'}}</h4>
             @endif
             <hr>
             @if($ad_data->approved==0)
@@ -81,7 +103,7 @@
                 <a href="/admin/cancel-ad/{{$ad_data->slug}}" class="btn btn-danger">Reject Ad</a>
             </form>
             @else
-                <h4 class="my-3">Ad Status: <span style="color:{{$request_data->request_status==1?'green':'red'}};">{{$ad_data->approved==1?'Rejected':'Approved'}}</span></h4>
+                <h4 class="my-3">Ad Status: <span style="color:{{$ad_data->approved==2?'green':'red'}};">{{$ad_data->approved==1?'Rejected':'Approved'}}</span></h4>
             @endif
         </div>
     </div>

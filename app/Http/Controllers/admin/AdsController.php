@@ -24,21 +24,15 @@ class AdsController extends Controller
         return view('admin.ads.show',compact('ad_data'));
     }
 
-    public function store(Request $request,RequestsService $requestsService){
+    public function store(Request $request,AdsService $adsService){
         $data=$request->except('_token');
-        $response=$requestsService->approveRequest($data);
-        if(!$response){
-            session()->push('m','danger');
-            session()->push('m','You Must fill amount and less than request amount');
-            return back();
-        }
+        $response=$adsService->approveAd($data);
         session()->push('m','success');
-        session()->push('m','Request Approved');
+        session()->push('m','Ad Approved');
         return back();
     }
-    public function cancelRequest($request_id,RequestsService $requestsService){
-        $data['request_id']=$request_id;
-        $requestsService->cancelRequest($data);
+    public function rejectAd($ad_id,AdsService $adsService){
+        $adsService->rejectAd($ad_id);
         return back();
     }
 }
