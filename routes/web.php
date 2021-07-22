@@ -11,6 +11,7 @@ use App\Http\Controllers\admin\MainController as AdminMainController;
 use App\Http\Controllers\admin\TransactionsController as AdminTransactionsController;
 use App\Http\Controllers\admin\RequestsController as AdminRequestsController;
 use App\Http\Controllers\admin\UsersController as AdminUsersController;
+use App\Http\Controllers\admin\AdsController as AdminAdsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,8 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','adminCheck']], function(
     Route::get('/cancel-request/{request_id}', [AdminRequestsController::class,'cancelRequest']);
     Route::get('/old-requests', [AdminRequestsController::class,'oldRequests']);
     Route::resource('/users', AdminUsersController::class);
+    Route::resource('/ads', AdminAdsController::class);
+    Route::get('/old-ads', [AdminAdsController::class,'oldAds']);
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

@@ -16,6 +16,23 @@ class AdsService{
         $data['user_id']=Auth::user()->id;
         $transactionService->createTransaction($data);
     }
+    public function getNewAds($user_id=null){
+        if($user_id){
+            return Ads::where('user_id',$user_id)->where('seen',0)->orderBy('id','desc')->limit(50)->get();
+        }else{
+            return Ads::orderBy('id','desc')->where('seen',0)->paginate(30);
+        }
+    }
+    public function getOldAds($user_id=null){
+        if($user_id){
+            return Ads::where('user_id',$user_id)->where('seen',1)->orderBy('id','desc')->limit(50)->get();
+        }else{
+            return Ads::orderBy('id','desc')->where('seen',1)->paginate(30);
+        }
+    }
+    public function getAd($ad_id){
+        return Ads::where('slug',$ad_id)->first();
+    }
     public function createAd($request){
         $data=$request->request()->except('_token');
         $type=$data['ad_type'];

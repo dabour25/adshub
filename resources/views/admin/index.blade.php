@@ -71,10 +71,14 @@
                         <div class="card-body-icon">
                             <i class="fas fa-fw fa-bullhorn"></i>
                         </div>
-                            <div class="mr-5">No New Reports</div>
+                        @if($ads_count!=0)
+                            <div class="mr-5">{{$ads_count}} New Ads</div>
+                        @else
+                            <div class="mr-5">No New Ads</div>
+                        @endif
                     </div>
-                    <a class="card-footer text-white clearfix small z-1" href="/admindb/reports">
-                        <span class="float-left">View Reports</span>
+                    <a class="card-footer text-white clearfix small z-1" href="/admin/ads">
+                        <span class="float-left">View Ads</span>
                         <span class="float-right">
                 <i class="fas fa-angle-right"></i>
               </span>
