@@ -24,7 +24,7 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-5 card p-3">Your Pending Balance: {{auth()->user()->pending_balance}} EGP</div>
             </div>
-            <table class="table">
+            <table class="table transactions-table">
                 <thead>
                     <th>#</th>
                     <th>Transaction ID</th>
@@ -37,7 +37,7 @@
                     <tr>
                         <td>{{$k+1}}</td>
                         <td>{{$transaction->transaction_id}}</td>
-                        <td style="color: {{$transaction->transaction_type=='deposit'?'green':'red'}}">{{$transaction->transaction_type=='deposit'?'+ ':'- '}}{{$transaction->amount}} EGP</td>
+                        <td style="color: {{$transaction->transaction_type=='deposit'?'#9df99d':'#ff4949'}}">{{$transaction->transaction_type=='deposit'?'+ ':'- '}}{{$transaction->amount}} EGP</td>
                         <td>{{$transaction->new_balance}} EGP</td>
                         <td>{{$transaction->created_at}}</td>
                     </tr>

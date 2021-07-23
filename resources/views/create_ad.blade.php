@@ -65,7 +65,7 @@
                     @endif
                     <input type="hidden" name="ad_type" value="image">
                     <h5>Customize audience available soon</h5>
-                    <button class="btn btn-success my-2" type="submit">Create Ad</button>
+                    <button class="appointment-btn my-2" type="submit">Create Ad</button>
                 </form>
             </div>
             <div id="page-div" style="display: none;">
@@ -101,7 +101,7 @@
                     @endif
                     <input type="hidden" name="ad_type" value="page">
                     <h5>Customize audience available soon</h5>
-                    <button class="btn btn-success my-2" type="submit">Create Ad</button>
+                    <button class="appointment-btn my-2" type="submit">Create Ad</button>
                 </form>
             </div>
             <div id="youtube-div" style="display: none;">
@@ -144,7 +144,7 @@
                     @endif
                     <input type="hidden" name="ad_type" value="youtube">
                     <h5>Customize audience available soon</h5>
-                    <button class="btn btn-success my-2" type="submit">Create Ad</button>
+                    <button class="appointment-btn my-2" type="submit">Create Ad</button>
                 </form>
             </div>
         </div>

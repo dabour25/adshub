@@ -468,12 +468,14 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 56px;
   text-transform: uppercase;
   color: #f8981e;
+    text-shadow: 1px 1px 1px black;
 }
 
 #hero h2 {
   color: #f8981e;
   margin: 10px 0 0 0;
   font-size: 24px;
+    text-shadow: 1px 1px 1px black;
 }
 
 #hero .btn-get-started {
@@ -535,7 +537,7 @@ section {
 }
 
 .section-bg {
-  background-color: #f1f7fd;
+  background-color: #383838;
 }
 
 .section-title {
@@ -662,7 +664,7 @@ section {
   display: inline-block;
   background: rgba(255, 255, 255, 0.2);
   padding: 6px 30px 8px 30px;
-  color: #fff;
+  color: #000;
   border-radius: 50px;
   transition: all ease-in-out 0.4s;
 }
@@ -966,7 +968,7 @@ section {
 }
 
 .services .icon-box h4 a {
-  color: #c17617;
+  color: #f8981e;
 }
 
 .services .icon-box p {
@@ -1264,7 +1266,7 @@ section {
 
 .faq .faq-list li {
   padding: 20px;
-  background: #fff;
+  background: #2b2b2b;
   border-radius: 4px;
   position: relative;
 }
@@ -1306,7 +1308,7 @@ section {
 }
 
 .faq .faq-list a.collapsed {
-  color: #343a40;
+  color: #ababab;
 }
 
 .faq .faq-list a.collapsed:hover {
@@ -1582,14 +1584,14 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  color: #444444;
+  color: #c3c3c3;
   font-size: 14px;
-  background: #f1f7fd;
+  background: #1b1b1b;
 }
 
 #footer .footer-top {
   padding: 60px 0 30px 0;
-  background: #fff;
+  background: #1b1b1b;
   box-shadow: 0px 2px 15px rgba(25, 119, 204, 0.1);
 }
 
@@ -1610,13 +1612,13 @@ section {
   line-height: 24px;
   margin-bottom: 0;
   font-family: "Raleway", sans-serif;
-  color: #777777;
+  color: #a9a9a9;
 }
 
 #footer .footer-top h4 {
   font-size: 16px;
   font-weight: bold;
-  color: #444444;
+  color: #a9a9a9;
   position: relative;
   padding-bottom: 12px;
 }
@@ -1649,7 +1651,7 @@ section {
 }
 
 #footer .footer-top .footer-links ul a {
-  color: #777777;
+  color: #a9a9a9;
   transition: 0.3s;
   display: inline-block;
   line-height: 1;
@@ -1667,7 +1669,7 @@ section {
 #footer .footer-newsletter h4 {
   font-size: 16px;
   font-weight: bold;
-  color: #444444;
+  color: #a9a9a9;
   position: relative;
   padding-bottom: 12px;
 }
@@ -1732,4 +1734,35 @@ section {
   background: #ffb626;
   color: #fff;
   text-decoration: none;
+}
+
+.form-control{
+    border-radius: 20px;
+}
+.form-control::placeholder{
+    color: #444444;
+}
+
+.card{
+    background-color: #404040;
+    font-size: 22px;
+    margin: 20px 0;
+}
+
+.transactions-table{
+    border-color: #e4be8e;
+    color: #fdfdfd;
+}
+
+.profile-text{
+    font-size: 16px;
+    color: #e4b981;
+}
+
+.list-group-item{
+    background-color: #212529;
+}
+
+.list-text{
+    color: #fff;
 }

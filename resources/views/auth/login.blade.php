@@ -29,7 +29,7 @@
                 <label>Password</label>
                 <input type="password" name="password" class="form-control">
                 <br>
-                <button class="btn btn-primary" type="submit">Login</button>
+                <button class="appointment-btn" type="submit">Login</button>
             </form>
         </div>
     </section>
