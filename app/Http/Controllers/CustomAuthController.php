@@ -105,6 +105,7 @@ class CustomAuthController extends Controller
             'paypal_email' =>$data['paypal_email'],
             'password' => Hash::make($data['password']),
             'slug' => $data['slug'],
+            'affiliate_id' => $data['affiliate_id'],
         ]);
     }
 
