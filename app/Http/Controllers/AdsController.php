@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Requests\Ads\CreateAdValidator;
 use App\Services\AdsService;
 use App\Services\ContactService;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class AdsController extends Controller
@@ -30,5 +32,11 @@ class AdsController extends Controller
         $ads=$adsService->getAdsForShow();
         $page="View Ads";
         return view('view_ads',compact('page','ads'));
+    }
+
+    public function earnAd(Request $request,AdsService $adsService){
+        $data=$request->except('_token');
+        $response=$adsService->earnAd($data);
+        return response()->json($response['data'],$response['status']);
     }
 }

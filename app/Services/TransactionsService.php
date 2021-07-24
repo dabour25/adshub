@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class TransactionsService{
+    public function getLastTransaction($user_id=null){
+        if($user_id){
+            return Transaction::where('user_id',$user_id)->orderBy('id','desc')->first();
+        }else{
+            return Transaction::orderBy('id','desc')->first();
+        }
+    }
     public function getTransactions($user_id=null){
         if($user_id){
             return Transaction::where('user_id',$user_id)->orderBy('id','desc')->limit(50)->get();

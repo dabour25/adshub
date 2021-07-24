@@ -52,14 +52,14 @@
             $(".view-ad-btn").prop('disabled', true);
             let refreshIntervalId=setInterval(function () {
                 if(ad_window.closed){
-                    alert('window is closed');
+                    completeAd(slug,time/1000);
                     clearInterval(refreshIntervalId);
                     $(".view-ad-btn").prop('disabled', false);
                     $("#ad-"+slug).remove();
                 }
                 if(time>=max_time*1000){
                     ad_window.close();
-                    alert('Ad Fully Time');
+                    completeAd(slug,time/1000);
                     clearInterval(refreshIntervalId);
                     $(".view-ad-btn").prop('disabled', false);
                     $("#ad-"+slug).remove();
@@ -68,8 +68,24 @@
             },500);
         }
         function visitAd(slug,adLink) {
+            completeAd(slug,0,true);
             window.open(adLink,'_blank');
             $("#ad-"+slug).remove();
+        }
+        function completeAd(slug,time,click=false) {
+            var xhttp = new XMLHttpRequest();
+            var data = new FormData();
+            data.append('slug', slug);
+            data.append('time', time);
+            data.append('click', click);
+            data.append('_token', "{{ csrf_token() }}");
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(this.response);
+                }
+            };
+            xhttp.open("POST", "/view-ads", true);
+            xhttp.send(data);
         }
     </script>
 @stop

@@ -49,6 +49,7 @@ Route::post('/create-ad',[AdsController::class,'store'])->middleware('auth');
 Route::get('/transfer',[TransactionsController::class,'transferShow'])->middleware('auth');
 Route::post('/transfer',[TransactionsController::class,'transfer'])->middleware('auth');
 Route::get('/view-ads',[AdsController::class,'showAds'])->middleware('auth');
+Route::post('/view-ads',[AdsController::class,'earnAd'])->middleware('auth');
 
 Route::group(['prefix'=>'/admin','middleware'=>['auth','adminCheck']], function(){
     Route::get('/', [AdminMainController::class, 'index']);
