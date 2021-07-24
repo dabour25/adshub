@@ -67,6 +67,9 @@
             <ul>
                 <li><a class="nav-link scrollto" href="/">Home</a></li>
                 <li><a class="nav-link scrollto" href="/manual">How to use</a></li>
+                @if(auth()->user())
+                    <li><a class="nav-link scrollto {{$page=='View Ads'?'active':''}}" href="/view-ads">View Ads</a></li>
+                @endif
                 <li><a class="nav-link scrollto {{$page=='Terms & Conditions'?'active':''}}" href="/terms">Terms&Conditions</a></li>
                 <li class="dropdown">
                     <a href="#" class="{{$page=='Login'||$page=='Registration'||$page=='Profile'||$page=='Transactions'||$page=='New Request'?'active':''}}">

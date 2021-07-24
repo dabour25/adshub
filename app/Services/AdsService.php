@@ -90,4 +90,13 @@ class AdsService{
         $transaction['transaction_type']="deposit";
         $transactionService->createTransaction($transaction);
     }
+    public function getAdsForShow(){
+        $filters['approved']=2;
+        $filters['hideForUser']=Auth::user()->id;
+        $filters['canView']=1;
+        $filters['orderBy']='available_cost';
+        $filters['orderType']='desc';
+        $availableAds=Ads::Filter($filters)->paginate(10);
+        return $availableAds;
+    }
 }

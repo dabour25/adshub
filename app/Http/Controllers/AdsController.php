@@ -25,4 +25,10 @@ class AdsController extends Controller
         Session::put('message', 'Ad Created, Waiting Admin Approval');
         return back();
     }
+
+    public function showAds(AdsService $adsService){
+        $ads=$adsService->getAdsForShow();
+        $page="View Ads";
+        return view('view_ads',compact('page','ads'));
+    }
 }
