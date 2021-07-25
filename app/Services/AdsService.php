@@ -184,6 +184,10 @@ class AdsService{
             dd($exception);
             return ["data"=>"Something wrong happened","status"=>500];
         }
-
+    }
+    public function userAds($slug){
+        $userService=new UsersService();
+        $user=$userService->getUser($slug);
+        return Ads::where('by_user',$user->id)->orderBy('id','desc')->paginate(20);
     }
 }

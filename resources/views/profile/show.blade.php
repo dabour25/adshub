@@ -195,12 +195,13 @@
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <a href="/profile/edit" class="btn btn-primary">Edit/Change Password</a>
+                                                <a href="/user-ads" class="btn btn-success">Your Ads</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                            <div class="row gutters-sm">
+                            <!--<div class="row gutters-sm">
                                 <div class="col-sm-6 mb-3">
                                     <div class="card h-100">
                                         <div class="card-body">
@@ -254,7 +255,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                     </div>

@@ -219,7 +219,7 @@
                 <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
                     <div class="count-box">
                         <i class="fa fa-eye"></i>
-                        <span data-purecounter-start="0" data-purecounter-end="18" data-purecounter-duration="1" class="purecounter"></span>
+                        <span data-purecounter-start="0" data-purecounter-end="{{$statistics_Data['total_views']}}" data-purecounter-duration="1" class="purecounter"></span>
                         <p>watched Ads</p>
                     </div>
                 </div>
@@ -227,7 +227,7 @@
                 <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
                     <div class="count-box">
                         <i class="fas fa-dollar-sign"></i>
-                        <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter"></span>
+                        <span data-purecounter-start="0" data-purecounter-end="{{$statistics_Data['total_earnings']}}" data-purecounter-duration="1" class="purecounter"></span>
                         <p>total Earnings</p>
                     </div>
                 </div>

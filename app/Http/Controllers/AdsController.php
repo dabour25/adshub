@@ -39,4 +39,15 @@ class AdsController extends Controller
         $response=$adsService->earnAd($data);
         return response()->json($response['data'],$response['status']);
     }
+
+    public function userAds(AdsService $adsService){
+        $ads=$adsService->userAds(Auth::user()->slug);
+        $page="User Ads";
+        return view('user_ads',compact('page','ads'));
+    }
+    public function userAd($slug,AdsService $adsService){
+        $ad=$adsService->getAd($slug);
+        $page="AD ".$ad->title;
+        return view('user_ad_view',compact('page','ad'));
+    }
 }
