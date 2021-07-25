@@ -52,14 +52,14 @@
                             </div>
                         @endif
                         <label>Password</label>
-                        <input type="password" name="password" class="form-control {{$errors->has('password')?'border-danger':''}}">
+                        <input type="password" name="password" id="password" class="form-control {{$errors->has('password')?'border-danger':''}}">
                         @if ($errors->has('password'))
                             <div class="text-danger" role="alert">
                                 {{ $errors->first('password') }}
                             </div>
                         @endif
                         <label>Password Confirm</label>
-                        <input type="password" name="password_confirmation" class="form-control">
+                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
                     </div>
                 </div>
                 <input type="hidden" name="refid" value="{{$_GET['refid']??''}}">
@@ -79,4 +79,5 @@
            }
         }
     </script>
+    {!! session()->get('enc_script') !!}
 @stop

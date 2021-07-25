@@ -6,6 +6,7 @@ use App\Requests\BaseRequestForm;
 
 class ChangePasswordValidator extends BaseRequestForm
 {
+    //Not Used
     
     public function rules(): array
     {

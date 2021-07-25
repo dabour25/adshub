@@ -27,10 +27,11 @@
                     </div>
                 @endif
                 <label>Password</label>
-                <input type="password" name="password" class="form-control">
+                <input type="password" name="password" class="form-control" id="password">
                 <br>
-                <button class="appointment-btn" type="submit">Login</button>
+                <button class="appointment-btn" type="submit" id="login">Login</button>
             </form>
         </div>
     </section>
+    {!! session()->get('enc_script') !!}
 @stop

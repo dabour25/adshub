@@ -86,11 +86,11 @@
                 <label>Old Password</label>
                 <input type="password" name="old_password" class="form-control">
                 <label>New Password</label>
-                <input type="password" name="password" class="form-control">
+                <input type="password" name="password" class="form-control" id="password">
                 <label>New Password confirm</label>
-                <input type="password" name="password_confirmation" class="form-control">
+                <input type="password" name="password_confirmation" class="form-control" id="password_confirmation">
                 <br>
-                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <button type="submit" class="btn btn-primary" id="change_password">Save Changes</button>
             </form>
         </div>
     </section>
@@ -140,4 +140,5 @@
         });
         createCities();
     </script>
+    {!! session()->get('enc_script') !!}
 @stop

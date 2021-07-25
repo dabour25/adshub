@@ -66,7 +66,6 @@
         <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
                 <li><a class="nav-link scrollto" href="/">Home</a></li>
-                <li><a class="nav-link scrollto" href="/manual">How to use</a></li>
                 @if(auth()->user())
                     <li><a class="nav-link scrollto {{$page=='View Ads'?'active':''}}" href="/view-ads">View Ads</a></li>
                 @endif
@@ -138,7 +137,6 @@
                     <h4>Useful Links</h4>
                     <ul>
                         <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="/manual">How to Use</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="/terms">Terms And Conditions</a></li>
                     </ul>
                 </div>
@@ -146,15 +144,20 @@
                 <div class="col-lg-3 col-md-6 footer-links">
                     <h4>User Links</h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="/login">Login</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="/register">Register</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="/create-ad">Create Ad</a></li>
+                        @if(auth()->user())
+                            <li><i class="bx bx-chevron-right"></i> <a href="/create-ad">Create Ad</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="/view-ads">View Ads</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="/profile">Profile</a></li>
+                        @else
+                            <li><i class="bx bx-chevron-right"></i> <a href="/login">Login</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="/register">Register</a></li>
+                        @endif
                     </ul>
                 </div>
 
                 <div class="col-lg-4 col-md-6 footer-newsletter">
                     <h4>Join Our Newsletter</h4>
-                    <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                    <p>Get Latest News of AdsHub</p>
                     <form action="" method="post">
                         <input type="email" name="email"><input type="submit" value="Subscribe">
                     </form>
