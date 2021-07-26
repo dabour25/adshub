@@ -72,6 +72,6 @@ class User extends Authenticatable
         return $this->belongsTo(UserData::class,'id','user_id');
     }
     public function user_affiliate(){
-        return $this->belongsTo(User::class,'id','affiliate_id');
+        return $this->belongsTo(User::class,'affiliate_id','id');
     }
 }

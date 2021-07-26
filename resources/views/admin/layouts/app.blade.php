@@ -126,46 +126,22 @@
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-fw fa-folder"></i>
-                <span>Department</span>
+                <i class="fas fa-fw fa-bullhorn"></i>
+                <span>Ads</span>
             </a>
             <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                <a class="dropdown-item" href="adddepartment.html">Add Department</a>
-                <a class="dropdown-item" href="editdepartment.html">Edit Department</a>
-                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/admin/ads">New Ads</a>
+                <a class="dropdown-item" href="/admin/old-ads">Old Ads</a>
             </div>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-fw fa-folder"></i>
-                <span>Group</span>
+                <i class="fas fa-fw fa-list"></i>
+                <span>Requests</span>
             </a>
             <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                <a class="dropdown-item" href="addgroup1.html">Add Group</a>
-                <a class="dropdown-item" href="editgroup1.html">Edit Group</a>
-                <div class="dropdown-divider"></div>
-            </div>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-fw fa-folder"></i>
-                <span>Section</span>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                <a class="dropdown-item" href="addsection1.html">Add Section</a>
-                <a class="dropdown-item" href="editsection1.html">Edit Section</a>
-                <div class="dropdown-divider"></div>
-            </div>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-fw fa-folder"></i>
-                <span>Places</span>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                <a class="dropdown-item" href="addplace1.html">Add Place</a>
-                <a class="dropdown-item" href="editplace1.html">Edit Place</a>
-                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/admin/requests">New Requests</a>
+                <a class="dropdown-item" href="/admin/old-requests">Old Requests</a>
             </div>
         </li>
     </ul>
