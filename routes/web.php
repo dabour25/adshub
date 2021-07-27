@@ -25,6 +25,7 @@ use App\Http\Controllers\admin\AdsController as AdminAdsController;
 */
 
 Route::get('/', [MainController::class,'index']);
+Route::get('lang/{language}',[MainController::class,'lang']);
 Route::get('/login',[MainController::class,'redirectHome']);
 Route::get('/register',[MainController::class,'redirectHome']);
 

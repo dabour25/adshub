@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Ads;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\App;
 
 class MainController extends Controller
 {
@@ -22,5 +24,10 @@ class MainController extends Controller
     }
     public function redirectHome(){
         return redirect('/');
+    }
+
+    public function lang($language){
+        Session::put(['lang'=>$language]);
+        return back();
     }
 }

@@ -47,7 +47,7 @@
                     If the ad units are displayed in the future, it will be based on your interests, it will be based on our own algorithms, and your information will not be passed on to any third party whatsoever.
                     Since we also believe in freedom of opinion, no publications or advertisements related to political and social issues will be prohibited, except for what offends public modesty only such as nudity or
                     Other sexual content, or bullying a particular group or person, or outrageous words, or bloody or offensive content for a country, the government of a country, or a religion
-                    <br><strong style="color:red;">We (the second party) also disclaim all responsibility for the content and the content is the property of the first party only and we are not a party to any disputes due to a publication or comment except
+                    <br><strong style="color:#ff6464;">We (the second party) also disclaim all responsibility for the content and the content is the property of the first party only and we are not a party to any disputes due to a publication or comment except
                     If he violates the policies mentioned in the same item.</strong>
                 </p>
                 <li>The Fifth Rule - profit and illegal clicks:</li>

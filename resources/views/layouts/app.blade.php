@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{app()->getLocale()}}">
 
 <head>
     <meta charset="utf-8">
@@ -8,7 +8,7 @@
     <title>Ads Hub | {{$page}}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
     <!-- Favicons -->
     <link href="{{asset('assets/img/adshub-logo-tiny.png')}}" rel="icon">
     <link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
@@ -27,9 +27,13 @@
     <link href="{{asset('assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- =======================================================
+    @if(app()->getLocale()=='en')
+        <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
+    @elseif(app()->getLocale()=='ar')
+        <link href="{{asset('assets/css/style-ar.css')}}" rel="stylesheet">
+@endif
+
+<!-- =======================================================
     * Template Name: Medilab - v4.3.0
     * Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
     * Author: BootstrapMade.com
@@ -47,6 +51,11 @@
             <i class="bi bi-phone"></i> +201140984296
         </div>
         <div class="d-none d-lg-flex social-links align-items-center">
+            @if(app()->getLocale()=='en')
+                <a href="/lang/ar" class=""><i class="fa fa-language"></i> عربى</a>
+            @elseif(app()->getLocale()=='ar')
+                <a href="/lang/en" class=""><i class="fa fa-language"></i>English</a>
+            @endif
             <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
             <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
             <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
@@ -65,15 +74,12 @@
 
         <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
-                <li><a class="nav-link scrollto" href="/">Home</a></li>
+                <li><a class="nav-link scrollto active" href="/">@lang('strings.Home')</a></li>
                 @if(auth()->user())
-                    <li><a class="nav-link scrollto {{$page=='View Ads'?'active':''}}" href="/view-ads">View Ads</a></li>
+                    <li><a class="nav-link scrollto {{$page=='View Ads'?'active':''}}" href="/view-ads">@lang('strings.View Ads')</a></li>
                 @endif
-                <li><a class="nav-link scrollto {{$page=='Terms & Conditions'?'active':''}}" href="/terms">Terms&Conditions</a></li>
-                <li class="dropdown">
-                    <a href="#" class="{{$page=='Login'||$page=='Registration'||$page=='Profile'||$page=='Transactions'||$page=='New Request'?'active':''}}">
-                        <span>{{auth()->user()?auth()->user()->name:'User'}}</span> <i class="bi bi-chevron-down"></i>
-                    </a>
+                <li><a class="nav-link scrollto" href="/terms">@lang('strings.Terms&Conditions')</a></li>
+                <li class="dropdown"><a href="#"><span>{{auth()->user()?auth()->user()->name:__('strings.User')}}</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         {{--<li class="dropdown"><a href="#"><span>User</span> <i class="bi bi-chevron-right"></i></a>--}}
                         {{--<ul>--}}
@@ -82,24 +88,24 @@
                         {{--</ul>--}}
                         {{--</li>--}}
                         @if(auth()->user())
-                            <li><a href="/transactions">Balance: {{auth()->user()->balance}} L.E</a></li>
-                            <li><a href="/profile">Profile</a> </li>
+                            <li><a href="/transactions">@lang('strings.Balance'): {{auth()->user()->balance}} @lang('strings.LE')</a></li>
+                            <li><a href="/profile">@lang('strings.Profile')</a> </li>
                             @if(auth()->user()->user_status=='admin')
-                                <li><a href="/admin">Admin Dashboard</a></li>
+                                <li><a href="/admin">@lang('strings.Admin Dashboard')</a></li>
                             @endif
-                            <li><a href="/auth/logout">Logout</a></li>
+                            <li><a href="/auth/logout">@lang('strings.Logout')</a></li>
                         @else
-                            <li><a href="/auth/login">Login</a></li>
-                            <li><a href="/auth/register">Register</a></li>
+                            <li><a href="/auth/login">@lang('strings.Login')</a></li>
+                            <li><a href="/auth/register">@lang('strings.Register')</a></li>
                         @endif
                     </ul>
                 </li>
-                <li><a class="nav-link scrollto {{$page=='Contact Us'?'active':''}}" href="/contact">Contact</a></li>
+                <li><a class="nav-link scrollto" href="/contact">@lang('strings.Contact')</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
 
-        <a href="/create-ad" class="appointment-btn scrollto"><span class="d-none d-md-inline">Create new</span> Ad</a>
+        <a href="/create-ad" class="appointment-btn scrollto">@lang('strings.Create New Ad')</a>
 
     </div>
 </header><!-- End Header -->
