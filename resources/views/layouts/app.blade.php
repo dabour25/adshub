@@ -32,13 +32,7 @@
     @elseif(app()->getLocale()=='ar')
         <link href="{{asset('assets/css/style-ar.css')}}" rel="stylesheet">
 @endif
-
-<!-- =======================================================
-    * Template Name: Medilab - v4.3.0
-    * Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -81,12 +75,6 @@
                 <li><a class="nav-link scrollto" href="/terms">@lang('strings.Terms&Conditions')</a></li>
                 <li class="dropdown"><a href="#"><span>{{auth()->user()?auth()->user()->name:__('strings.User')}}</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        {{--<li class="dropdown"><a href="#"><span>User</span> <i class="bi bi-chevron-right"></i></a>--}}
-                        {{--<ul>--}}
-                        {{--<li><a href="/login">Login</a></li>--}}
-                        {{--<li><a href="/register">Register</a></li>--}}
-                        {{--</ul>--}}
-                        {{--</li>--}}
                         @if(auth()->user())
                             <li><a href="/transactions">@lang('strings.Balance'): {{auth()->user()->balance}} @lang('strings.LE')</a></li>
                             <li><a href="/profile">@lang('strings.Profile')</a> </li>
