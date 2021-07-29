@@ -22,7 +22,8 @@ class CustomAuthController extends Controller
 
     public function index()
     {
-        $page="Login";
+        $page['title']="Login";
+        $page['section']="user";
         $even_token="$40EL".rand(100,999);
         $odd_token="$40OL".rand(10,99);
         $evenRand=rand(10,99);
@@ -101,7 +102,7 @@ class CustomAuthController extends Controller
             return redirect('/');
         }
         Session::put('status', 'danger');
-        Session::put('message', 'Login details are not valid');
+        Session::put('message', __("strings.Login details are not valid"));
         return redirect("auth/login");
     }
 
@@ -109,7 +110,8 @@ class CustomAuthController extends Controller
 
     public function registration()
     {
-        $page="Registration";
+        $page["title"]="Registration";
+        $page["section"]="user";
         $even_token="$40ER".rand(100,999);
         $odd_token="$40OR".rand(10,99);
         $evenRand=rand(10,99);
@@ -195,7 +197,7 @@ class CustomAuthController extends Controller
             $check = $this->create($data);
             UserData::create(['user_id'=>$check->id]);
             Session::put('status', 'success');
-            Session::put('message', 'Registered Successfully, You can now login');
+            Session::put('message', __("strings.Registered Successfully, You can now login"));
             return redirect("/auth/login");
         }else{
             Session::put('status', 'danger');
@@ -222,7 +224,8 @@ class CustomAuthController extends Controller
 
     public function profile()
     {
-        $page='Profile';
+        $page["title"]='Profile';
+        $page["section"]='user';
         return view('profile.show',compact('page'));
     }
 

@@ -56,8 +56,8 @@ return [
         'string' => 'The :attribute must be greater than or equal :value characters.',
         'array' => 'The :attribute must have :value items or more.',
     ],
-    'image' => 'The :attribute must be an image.',
-    'in' => 'The selected :attribute is invalid.',
+    'image' => ':attribute يجب ان تكون صورة',
+    'in' => 'العنصر :attribute غير صالح.',
     'in_array' => 'The :attribute field does not exist in :other.',
     'integer' => 'The :attribute must be an integer.',
     'ip' => 'The :attribute must be a valid IP address.',
@@ -114,7 +114,7 @@ return [
     'timezone' => 'The :attribute must be a valid zone.',
     'unique' => ':attribute مسجل من قبل',
     'uploaded' => 'The :attribute failed to upload.',
-    'url' => 'The :attribute format is invalid.',
+    'url' => ':attribute عنوان غير صالح',
     'uuid' => 'The :attribute must be a valid UUID.',
 
     /*
@@ -167,6 +167,7 @@ return [
 		'name'=>'الإسم',
         'subject'=>'الموضوع',
         'report'=>'التقرير',
+        "paypal_email"=>"بريد حساب بايبال",
     ],
 
 ];

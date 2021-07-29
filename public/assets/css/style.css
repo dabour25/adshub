@@ -1766,3 +1766,7 @@ section {
 .list-text{
     color: #fff;
 }
+
+.text-danger{
+    color: #ef606d !important;
+}

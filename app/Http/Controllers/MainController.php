@@ -11,7 +11,8 @@ use Illuminate\Support\Facades\App;
 class MainController extends Controller
 {
     public function index(){
-        $page="Home";
+        $page['title']="Home";
+        $page['section']="Home";
         $statistics_Data['users']=User::count();
         $statistics_Data['totalAds']=Ads::where('approved',2)->count();
         $statistics_Data['total_views']=Ads::sum('views');
@@ -19,8 +20,11 @@ class MainController extends Controller
         return view('welcome',compact('page','statistics_Data'));
     }
     public function terms(){
-        $page="Terms & Conditions";
-        return view('terms',compact('page'));
+        $page["title"]="Terms & Conditions";
+        $page["section"]="terms";
+        if(App::isLocale("en"))
+            return view('terms',compact('page'));
+        return view('terms_ar',compact('page'));
     }
     public function redirectHome(){
         return redirect('/');

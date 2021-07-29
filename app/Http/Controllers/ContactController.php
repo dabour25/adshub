@@ -10,14 +10,15 @@ use Illuminate\Support\Facades\Session;
 class ContactController extends Controller
 {
     public function index(){
-        $page='Contact Us';
+        $page["title"]='Contact Us';
+        $page["section"]='contact';
         return view('contact',compact('page'));
     }
 
     public function store(ContactValidator $contactValidator,ContactService $contactService){
         $contactService->createMessage($contactValidator->request()->except('_token'));
         Session::put('status', 'success');
-        Session::put('message', 'Message Sent to admin successfully');
+        Session::put('message', __("strings.Message Sent to admin successfully"));
         return back();
     }
 }

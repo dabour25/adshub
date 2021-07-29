@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="{{app()->getLocale()}}">
-
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Ads Hub | {{$page}}</title>
+    <title>Ads Hub | {{$page['title']}}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -68,12 +67,12 @@
 
         <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
-                <li><a class="nav-link scrollto active" href="/">@lang('strings.Home')</a></li>
+                <li><a class="nav-link scrollto {{$page['section']=="Home"?'active':''}}" href="/">@lang('strings.Home')</a></li>
                 @if(auth()->user())
-                    <li><a class="nav-link scrollto {{$page=='View Ads'?'active':''}}" href="/view-ads">@lang('strings.View Ads')</a></li>
+                    <li><a class="nav-link scrollto {{$page['section']=="view ads"?'active':''}}" href="/view-ads">@lang('strings.View Ads')</a></li>
                 @endif
-                <li><a class="nav-link scrollto" href="/terms">@lang('strings.Terms&Conditions')</a></li>
-                <li class="dropdown"><a href="#"><span>{{auth()->user()?auth()->user()->name:__('strings.User')}}</span> <i class="bi bi-chevron-down"></i></a>
+                <li><a class="nav-link scrollto {{$page['section']=="terms"?'active':''}}" href="/terms">@lang('strings.Terms&Conditions')</a></li>
+                <li class="dropdown"><a href="#" class="{{$page['section']=="user"?'active':''}}"><span>{{auth()->user()?auth()->user()->name:__('strings.User')}}</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         @if(auth()->user())
                             <li><a href="/transactions">@lang('strings.Balance'): {{auth()->user()->balance}} @lang('strings.LE')</a></li>
@@ -88,7 +87,7 @@
                         @endif
                     </ul>
                 </li>
-                <li><a class="nav-link scrollto" href="/contact">@lang('strings.Contact')</a></li>
+                <li><a class="nav-link scrollto {{$page['section']=="contact"?'active':''}}" href="/contact">@lang('strings.Contact')</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
@@ -119,39 +118,36 @@
                 <div class="col-lg-3 col-md-6 footer-contact">
                     <h3>AdsHub</h3>
                     <p>
-                        Fully Egyptian<br>
-                        Site<br>
-                        <br>
-                        <strong>Phone:</strong> +201140984296<br>
-                        <strong>Email:</strong> h.dabour25@yahoo.com<br>
+                        <strong>@lang("strings.Phone"):</strong> +201140984296<br>
+                        <strong>@lang("strings.Email"):</strong> h.dabour25@yahoo.com<br>
                     </p>
                 </div>
 
                 <div class="col-lg-2 col-md-6 footer-links">
-                    <h4>Useful Links</h4>
+                    <h4>@lang("strings.Useful Links")</h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="/terms">Terms And Conditions</a></li>
+                        <li><i class="bx bx-chevron-{{app()->isLocale('en')?'right':'left'}}"></i> <a href="/">@lang("strings.Home")</a></li>
+                        <li><i class="bx bx-chevron-{{app()->isLocale('en')?'right':'left'}}"></i> <a href="/terms">@lang("strings.Terms&Conditions")</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-3 col-md-6 footer-links">
-                    <h4>User Links</h4>
+                    <h4>@lang("strings.User Links")</h4>
                     <ul>
                         @if(auth()->user())
-                            <li><i class="bx bx-chevron-right"></i> <a href="/create-ad">Create Ad</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/view-ads">View Ads</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/profile">Profile</a></li>
+                            <li><i class="bx bx-chevron-{{app()->isLocale('en')?'right':'left'}}"></i> <a href="/create-ad">@lang("strings.Create Ad")</a></li>
+                            <li><i class="bx bx-chevron-{{app()->isLocale('en')?'right':'left'}}"></i> <a href="/view-ads">@lang("strings.View Ads")</a></li>
+                            <li><i class="bx bx-chevron-{{app()->isLocale('en')?'right':'left'}}"></i> <a href="/profile">@lang("strings.Profile")</a></li>
                         @else
-                            <li><i class="bx bx-chevron-right"></i> <a href="/login">Login</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/register">Register</a></li>
+                            <li><i class="bx bx-chevron-{{app()->isLocale('en')?'right':'left'}}"></i> <a href="/login">@lang("strings.Login")</a></li>
+                            <li><i class="bx bx-chevron-{{app()->isLocale('en')?'right':'left'}}"></i> <a href="/register">@lang("strings.Register")</a></li>
                         @endif
                     </ul>
                 </div>
 
                 <div class="col-lg-4 col-md-6 footer-newsletter">
-                    <h4>Join Our Newsletter</h4>
-                    <p>Get Latest News of AdsHub</p>
+                    <h4>@lang("strings.Join Our Newsletter")</h4>
+                    <p>@lang("strings.Get Latest News of") AdsHub</p>
                     <form action="" method="post">
                         <input type="email" name="email"><input type="submit" value="Subscribe">
                     </form>
@@ -161,11 +157,11 @@
         </div>
     </div>
 
-    <div class="container d-md-flex py-4">
+    <div class="container d-md-flex py-4" style="direction: ltr;">
 
         <div class="me-md-auto text-center text-md-start">
             <div class="copyright">
-                &copy; Copyright {{date('Y')}} <strong><span>Ads Hub</span></strong>. All Rights Reserved
+                &copy; Copyright {{date('Y')}} <strong><span>Ads Hub EG</span></strong>. All Rights Reserved
             </div>
             <div class="credits">
                 <!-- All the links in the footer should remain intact. -->

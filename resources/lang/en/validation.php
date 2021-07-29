@@ -162,6 +162,7 @@ return [
 		'pathroom' => 'pathroom',
 		'kitchens' => 'kitchens',
         'report'=>'Report',
+        "paypal_email"=>"Paypal Email",
     ],
 
 ];

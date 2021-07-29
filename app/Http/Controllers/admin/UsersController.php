@@ -23,7 +23,7 @@ class UsersController extends Controller
             return back();
         }
         session()->push('m','success');
-        session()->push('m','User Updated Successfully');
+        session()->push('m',__("strings.User Updated Successfully"));
         return back();
     }
     public function index(UsersService $usersService){

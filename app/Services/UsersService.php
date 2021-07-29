@@ -9,7 +9,7 @@ class UsersService{
     public function phone_paypal_check($phone,$paypal){
         if($paypal==''){
             if((substr($phone,0,3)!='010')&&(substr($phone,0,5)!='+2010')){
-                return 'If there are no paypal account , you must enter vodafone cash number';
+                return __("strings.If there are no paypal account , you must enter vodafone cash number");
             }
         }
         return 'Success';
@@ -24,7 +24,7 @@ class UsersService{
     public function updateUser($slug,$data){
         $user=$this->getUser($slug);
         if(!$user){
-            return "User Not Found";
+            return __("strings.User Not Found");
         }
         $checkPaypal=$this->phone_paypal_check($data['phone'],$data['paypal_email']);
         if($checkPaypal=='Success'){
