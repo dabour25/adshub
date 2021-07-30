@@ -35,11 +35,11 @@ class RequestsService{
     public function createRequest($data){
         $type=$data['type'];
         if(empty(Auth::user()->paypal_email)&&$data['method']=='paypal'){
-            return ['status'=>'danger','message'=>'You haven\'t paypal registered email'];
+            return ['status'=>'danger','message'=>__("strings.You haven't paypal registered email")];
         }
         if($data['method']=='vf_cash'){
             if(substr(Auth::user()->phone,0,3)!='011'&&substr(Auth::user()->phone,0,5)!='+2011'){
-                return ['status'=>'danger','message'=>'your registered phone number isn\'t vodafone'];
+                return ['status'=>'danger','message'=>__("strings.your registered phone number isn't vodafone")];
             }
         }
         if($type=='deposit'){
@@ -50,8 +50,7 @@ class RequestsService{
             $requestData['user_id']=Auth::user()->id;
             Request::create($requestData);
             User::where('id',Auth::user()->id)->update(['pending_balance'=>$data['amount']]);
-            return ['status'=>'success','message'=>'Request Success - Send money with selected method to vf-cash:01019742029 or paypal:h.dabour25@yahoo.com to continue request within 48 hours. after sending money wait 48 hours and if amount
-            not be in your final balance within 48 hours,call or send message to us'];
+            return ['status'=>'success','message'=>__("strings.Request Success - Send money with selected method to vf-cash:01019742029 or paypal:h.dabour25@yahoo.com to continue request within 48 hours. after sending money wait 48 hours and if amount not be in your final balance within 48 hours,call or send message to us")];
         }else{
             $requestData['request_id']='WR-'.rand(10,99).Auth::user()->id.STR::random(4);
             $requestData['amount']=$data['amount'];
@@ -66,8 +65,7 @@ class RequestsService{
             $transaction['amount']=$data['amount'];
             $transaction['transaction_type']="withdraw";
             $transactionService->createTransaction($transaction);
-            return ['status'=>'success','message'=>'Request Success - your money will send to selected method and phone/paypal account within 48 hours if there are
-            problem with us while sending we will back money to your final balance and notify you with problem'];
+            return ['status'=>'success','message'=>__("strings.Request Success - your money will send to selected method and phone/paypal account within 48 hours if there are problem with us while sending we will back money to your final balance and notify you with problem")];
         }
     }
     public function approveRequest($data){

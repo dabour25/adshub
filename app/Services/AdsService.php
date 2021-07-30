@@ -42,7 +42,7 @@ class AdsService{
         $data=$request->request()->except('_token');
         $type=$data['ad_type'];
         if($data['total_cost']>Auth::user()->balance){
-            return "You Haven't enough balance";
+            return __("strings.You Haven't enough balance");
         }
         if($type=='image'){
             $data['slug']="ADI-".rand(10,99).Auth::user()->id.Str::random(4);
@@ -73,7 +73,7 @@ class AdsService{
             $this->createTransaction($data['total_cost']);
             return 'success';
         }else{
-            return "Unsupported Type";
+            return __("strings.Unsupported Type");
         }
     }
     public function approveAd($data){
@@ -125,7 +125,7 @@ class AdsService{
     public function earnAd($data){
         $ad=Ads::where('slug',$data['slug'])->first();
         if(!$ad){
-            return ["data"=>"Ad Not Found","status"=>404];
+            return ["data"=>__("strings.Ad Not Found"),"status"=>404];
         }
         $advertiser=User::where('id',$ad->by_user)->first();
         $advertiser_aff=User::where('id',$advertiser->affiliate_id)->first();
@@ -178,11 +178,11 @@ class AdsService{
             }
             $ad->save();
             DB::commit();
-            return ["data"=>"Transaction Completed","status"=>200];
+            return ["data"=>__("strings.Transaction Completed"),"status"=>200];
         }catch (\Exception $exception){
             DB::rollback();
             dd($exception);
-            return ["data"=>"Something wrong happened","status"=>500];
+            return ["data"=>__("strings.Something wrong happened"),"status"=>500];
         }
     }
     public function userAds($slug){

@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Session;
 class RequestsController extends Controller
 {
     public function index(){
-        $page='New Request';
+        $page["title"]='New Request';
+        $page["section"]='user';
         return view('requests.index',compact('page'));
     }
     public function store(CreateRequestValidator $createRequestValidator,RequestsService $requestsService){

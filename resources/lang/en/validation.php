@@ -163,6 +163,7 @@ return [
 		'kitchens' => 'kitchens',
         'report'=>'Report',
         "paypal_email"=>"Paypal Email",
+        "amount"=>"amount",
     ],
 
 ];

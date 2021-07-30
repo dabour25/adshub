@@ -5,11 +5,11 @@
         <div class="container">
 
             <div class="d-flex justify-content-between align-items-center">
-                <h2>Your Ads</h2>
+                <h2>@lang("strings.Your Ads")</h2>
                 <ol>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/profile">Profile</a></li>
-                    <li>Your Ads</li>
+                    <li><a href="/">@lang("strings.Home")</a></li>
+                    <li><a href="/profile">@lang("strings.Profile")</a></li>
+                    <li>@lang("strings.Your Ads")</li>
                 </ol>
             </div>
 
@@ -30,7 +30,7 @@
                             <div class="icon"><i class="bx bxl-youtube"></i></div>
                         @endif
                         <p>{{$ad->title}}</p>
-                        <a class="appointment-btn view-ad-btn mx-0 my-2" href="/user-ads/{{$ad->slug}}">Show Details</a>
+                        <a class="appointment-btn view-ad-btn mx-0 my-2" href="/user-ads/{{$ad->slug}}">@lang("strings.Show Details")</a>
                     </div>
                 </div>
                 @endforeach

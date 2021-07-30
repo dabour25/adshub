@@ -33,48 +33,48 @@
                     يمكنك التواصل مع الدعم الخاص بنا لمعرفة السبب وإضافة الرصيد - نفس الشئ يحدث مع حساب البايبال . يمكنك إرسال الاموال بعد تقديم الطلب الى بريد
                     h.dabour25@yahoo.com, وفى خلال 48 ساعة, سيتم إضافة الرصيد الى رصيدك النهائى على موقعنا
                 </p>
-                <li>The Third Rule - Receiving money from your account on our website:</li>
+                <li>البند الثالث - إستلام الاموال من حسابك فى موقعنا:</li>
                 <p>
-                    Currently, there are two ways to receive payments from our website, which are Vodafone Cash and Paypal - in case your account reaches the minimum amount to receive the payment, which is 50 Egyptian pounds or its equivalent.
-                    In your currency and the maximum is 1000 Egyptian pounds or its equivalent in your currency. You can request to receive profits and choose Vodafone Cash or
-                    Paypal account and you must make sure whether the Vodafone Cash wallet or the Paypal account is valid, activated and received
-                    Money and your payment will be sent within 48 hours of submitting the order - in the event that we are unable to send you the profits, it will automatically return to your balance on our site until the problem is resolved
-                    Submit a new request.
+                    حالياً, يوجد طريقتى لإستلام المدفوعات من موقعنا, هما فودافون كاش مصر وبايبال - فى حال انك وصلت للحد الأدنى لتلقى الدفعات وهو 50 جنية مصرى او ما يعادلة
+                    فى عملتك المحلية والحد الاقصى 1000 جنية مصرى او ما يعادلة فى عملتك. يمكنك إرسال طلب إستلام الارباح وتختار بين فودافون كاش
+                    او حساب بايبال ويجب عليك التأكد من ان فودافون كاش او حساب البايبال لديك صالحين ويقبلون إستقبال الاموال
+                    وسوف يتم إرسال الدٌفعة لك خلال 48 ساعة من إرسال الطلب - فى حال عدم تمكننا من إرسال الدٌفعة لك, سوف تعود الدٌفعة الى حسابك مرة اخرى حتى تحل المشكلة
+                    وتعاود إرسال طلب جديد.
                 </p>
-                <li>The Fourth Rule - Privacy and your data on our website:</li>
+                <li>البند الرابع - الخصوصية وبياناتك فى موقعنا:</li>
                 <p>
-                    Since privacy is one of our priorities - the display of our ads will be completely random and any of your data will not be sold or traded to any party whatsoever and even
-                    If the ad units are displayed in the future, it will be based on your interests, it will be based on our own algorithms, and your information will not be passed on to any third party whatsoever.
-                    Since we also believe in freedom of opinion, no publications or advertisements related to political and social issues will be prohibited, except for what offends public modesty only such as nudity or
-                    Other sexual content, or bullying a particular group or person, or outrageous words, or bloody or offensive content for a country, the government of a country, or a religion
-                    <br><strong style="color:#ff6464;">We (the second party) also disclaim all responsibility for the content and the content is the property of the first party only and we are not a party to any disputes due to a publication or comment except
-                    If he violates the policies mentioned in the same item.</strong>
+                    لأن الخصوصية واحدة من اولوياتنا - يتم عرض الإعلانات بطريقة عشوائية تماماً وإى بيانات خاصة بك لن يتم بيعها او الإتجار بها لأى جهة مهماً كانت
+                    وحتى لو تم ظهور وحدات إعلانية فى المستقبل بناءاً على بياناتك, سوف تكون حسب إهتماماتك وبناءاً على خوارزمياتنا الخاصة, ولن تصل الى طرف ثالث تحت اى ظروف.
+                    ولأننا ايضاً نؤمن بحرية التعبير عن الرأى, لا توجد قيود على الإعلانات ولن يتم منع اى منشورات تخص القضايا الإجتماعية والسياسية ماعدا ما يخدش الحياء العام فقط محتوى التعرى
+                    او محتوى جنسى, او التنمر على فئة معينة من الناس او الاشخاص,الالفاظ الخارجة, المحتوى الدموى او المحتوى المسئ لدولة ما او حكومة ما او ديانة ما.
+                    <br><strong style="color:#ff6464;">نحن (الطرف الثانى) نٌخلى مسؤوليتنا الكاملة عن المحتوى فالمحتوى هو ملك للطرف الاول فقط ونحن لسنا طرف فى اى نزاعات قد تنشأ بسبب محتوى ما ماعدا لو
+                    خالف أحد البنود اوالسياسات الموجودة فى هذا البند.</strong>
                 </p>
-                <li>The Fifth Rule - profit and illegal clicks:</li>
+                <li>البند الخامس - الارباح والنقرات غير شرعية:</li>
                 <p>
-                    It is not permissible to view your own ad units for the purpose of illegal profit, and you may not view one ad more than once every 24 hours, even using a VPN or
-                    proxy chain and other fraud methods and when you find out your account will be permanently suspended.
+                    لا يجوز لك مشاهدة وحداتك الإعلانية الخاصة للتربح غير شرعى, ولا يجوز لك ايضاً مشاهدة الإعلان الواحد اكثر مرة واحدة فى اليوم حتى لو بإستخدام vpn او proxy chain
+                    وإى طريقة اخرى وعندما يتم إكتشاف هذا الأمر سيتم إيقاف حسابك بشكل نهائى وبدون رجعة.
                 </p>
-                <li>The Sixth Rule - Profits:</li>
+                <li>البند السادس - الارباح:</li>
                 <p>
-                    The first party is our partner in everything, so the profits from advertisements in all its forms will be shared by 40% for the first party (the user) and 60% for the second party (the management).
-                    Regular scrolling of publications. Additional profits may be added even without the appearance of any ads, but they are not essential and not fixed - you can withdraw your profits as we mentioned
-                    With a minimum of 50 EGP and a maximum of 1000 EGP for one payment every 24 hours, you can also transfer the balance to any other account with a minimum of 20 EGP and a maximum
-                    5000 Egyptian pounds and without any commissions for the second party (the administration), but it should be taken into account that there are deposit and withdrawal commissions in the account, which are 5% for each deposit of your balance and 7% for each withdrawal
-                    Your earnings or your current balance.
+                    الطرف الاول يعتبر شريكاً لنا فى كل شئ, لذلك الارباح الخاصة بالإعلانات فى كل أشكالها ستشارك مع الطرف الاول بنسبة 40% و الطرف الثانى (الإدارة) بنسبة 60%.
+                    يمكن ان يكون التصفح العادى دون ظهور إعلانات حتى سبب فى زيادة أرباحك ولكنها ليست ثابتة وليست أكيدة ويمكنك سحب أرباحك كما ذكرنا بحد أدنى
+                    50 جنية مصرى وبحد أقصى 1000 جنية مصرى لكل دٌفعة خلال 24 ساعة, يمكنك ايضاً تحويل الاموال لأى حساب اخر بحد أدنى 20 جنية مصرى وحد اقصى 5000 جنية مصرى
+                    وبدون اى عمولات للطرف الثانى (الإدارة), ولكن تذكر ان هناك عمولات التحويل (سحب - إيداع) الطبيعية 5% لكل عملية إيداع و 7% لكل عملية سحب
+                    من رصيدك الحالى.
                 </p>
-                <li>The Seventh Rule - Advertisements:</li>
+                <li>البند السابع - الإعلانات:</li>
                 <p>
-                    There are currently 4 types of ads available, a normal video of maximum duration of 5 minutes, an image, an external page (link) to increase visits, or a YouTube video to increase views
-                    In a legitimate way - we are working to grow your site or channel or even increase your product advertisements and all these ad units will be displayed in addition to advertisements in the form of publications soon
-                    When the forum is opened on our site, but currently ads are displayed directly, consecutively and randomly, with the aim of profit for the average user only.
+                    حالياً يوجد 4 اشكال من الإعلانات, فى الطبيعى اقصى مدة للفيديو 5 دقائق, الصور بأى حجم, رابط خارجى (صفحة ويب) لزيادة الزيارات, و فيديوهات اليوتيوب لزيادة المشاهدات والمشتركين
+                    بطريقة شرعية - نحن نسعى لتكبير موقعك او قناتك او حتى زيادة إعلانات منتجك وكل هذة الوحدات الإعلانية سوف تٌعرض على شكل منشورات قريباً عندما يتم إفتتاح المجتمع (المدونة) على موقعنا
+                    , لكن حالياً يتم عرض الإعلانات بشكل مباشر وبشكل عشوائى تماماً والهدف هو تحقيق الربح للمستخدم العادى فقط.
                 </p>
-                <li>The Eighth Rule - broker and Affiliate Marketing:</li>
+                <li>البند الثامن - الوساطة والتسويق بالعمولة:</li>
                 <p>
-                    Our system provides a affiliate marketing policy where you can market our site to add new users and earn additional profits with watching ads.
-                    Where you can share the link inside your profile with your colleagues or on different social networks and get 5% of the profits of users who registered
-                    Through your link, without compromising the user’s interest, meaning that the profits will be distributed as 40% to the viewer, 5% to the marketer, and 55% to the management, and if the user is an advertiser
-                    Or create an advertisement, you will receive 5% of the total price of the advertisement after the advertisement ends.
+                    يقدم النظام الخاص بنا خدمة التسويق بالعمولة, يمكنك التسويق للموقع لإضافة مستخدمين جدد وتلقى ارباح إضافية من مشاهدة الإعلانات
+                    حيث يمكنك مشاركة الرابط الخاص بك داخل ملفك الشخصى فى مجتمعك او فى منصات التواصل الإجتماعى المختلفة وستحصل على 5% من الارباح لكل مستخدم يشاهد إعلان
+                    وقد قام بالتسجيل من خلال الرابط الخاص بك, وبدون اى خصومات على ارباح المستخدم الجديد, بمعنى ان الارباح سوف تقسم 40% للمٌشاهد و 5% للمسوق و 55% للإدارة,
+                    ولو كان المستخدم الجديد مٌعلن او منشئ إعلانات, سوف تحصل على 5% اخرى من إجمالى سعر الإعلان بعد إنتهاء الإعلان.
                 </p>
             </ul>
         </div>

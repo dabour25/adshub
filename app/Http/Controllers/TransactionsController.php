@@ -14,12 +14,14 @@ use Illuminate\Support\Facades\Session;
 class TransactionsController extends Controller
 {
     public function index(TransactionsService $transactionsService){
-        $page='Transactions';
+        $page["title"]='Transactions';
+        $page["section"]='user';
         $transactions=$transactionsService->getTransactions(Auth::user()->id);
         return view('transactions',compact('page','transactions'));
     }
     public function transferShow(Request $request){
-        $page="Transfer Cash";
+        $page["title"]="Transfer Cash";
+        $page["section"]=null;
         if(!$request->get('user')){
             $user=[];
             return view('transfer_cash',compact('page','user'));
@@ -36,7 +38,7 @@ class TransactionsController extends Controller
         $data=$transferValidator->request()->except('_token');
         if(!Hash::check($data['password'],Auth::user()->password)){
             Session::put('status', 'danger');
-            Session::put('message', 'Password Not Match our records');
+            Session::put('message', __("strings.Password Not Match our records"));
             return back();
         }
         $response=$transactionsService->transfer($data);

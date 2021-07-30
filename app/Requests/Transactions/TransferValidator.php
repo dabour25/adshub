@@ -12,7 +12,7 @@ class TransferValidator extends BaseRequestForm
     public function rules(): array
     {
         return [
-            'amount'=> 'required|numeric|min:0.1|max:999999',
+            'amount'=> 'required|numeric|min:20|max:5000',
             'password'=> 'required|min:6',
         ];
     }

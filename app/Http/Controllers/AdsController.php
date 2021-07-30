@@ -24,13 +24,14 @@ class AdsController extends Controller
             return back()->withInput($adValidator->request()->input());
         }
         Session::put('status', 'success');
-        Session::put('message', 'Ad Created, Waiting Admin Approval');
+        Session::put('message', __("strings.Ad Created, Waiting Admin Approval"));
         return back();
     }
 
     public function showAds(AdsService $adsService){
         $ads=$adsService->getAdsForShow();
-        $page="View Ads";
+        $page["title"]="View Ads";
+        $page["section"]="view ads";
         return view('view_ads',compact('page','ads'));
     }
 
@@ -42,12 +43,14 @@ class AdsController extends Controller
 
     public function userAds(AdsService $adsService){
         $ads=$adsService->userAds(Auth::user()->slug);
-        $page="User Ads";
+        $page["title"]="User Ads";
+        $page["section"]="user";
         return view('user_ads',compact('page','ads'));
     }
     public function userAd($slug,AdsService $adsService){
         $ad=$adsService->getAd($slug);
-        $page="AD ".$ad->title;
+        $page["title"]="AD ".$ad->title;
+        $page["section"]="user";
         return view('user_ad_view',compact('page','ad'));
     }
 }
