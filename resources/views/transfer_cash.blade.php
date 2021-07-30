@@ -17,7 +17,7 @@
 
     <section class="inner-page">
         <div class="container">
-            @if(empty($user))
+            @if(empty($user)||!$user)
                 <h4>@lang("strings.User Not Found or You can't send money to yourself")</h4>
             @else
                 <form action="/transfer" method="post">

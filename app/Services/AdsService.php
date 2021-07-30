@@ -132,7 +132,7 @@ class AdsService{
         $user_aff=User::where('id',Auth::user()->affiliate_id)->first();
         $price=$this->priceCalculator($ad->available_cost,$data['time'],$data['click']);
         if($price==0){
-            return ["data"=>"Sorry,this ad run out of money","status"=>406];
+            return ["data"=>__("strings.Sorry,this ad run out of money"),"status"=>406];
         }
         $user_price=40*$price/100;
         try{

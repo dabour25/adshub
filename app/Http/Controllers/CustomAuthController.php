@@ -97,7 +97,11 @@ class CustomAuthController extends Controller
             if(Auth::user()->user_status=='admin'){
                 return redirect('/admin');
             }elseif(Auth::user()->user_status=='blocked'){
-                return redirect('/logout');
+                Session::flush();
+                Auth::logout();
+                Session::put('status', 'danger');
+                Session::put('message', __("strings.User Suspended"));
+                return redirect('/login');
             }
             return redirect('/');
         }

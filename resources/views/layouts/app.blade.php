@@ -32,6 +32,8 @@
         <link href="{{asset('assets/css/style-ar.css')}}" rel="stylesheet">
 @endif
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{asset('/sweetalert2/dist')}}/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="{{asset('/sweetalert2/dist')}}/sweetalert2.min.css">
 </head>
 
 <body>

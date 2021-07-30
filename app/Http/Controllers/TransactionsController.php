@@ -23,13 +23,13 @@ class TransactionsController extends Controller
         $page["title"]="Transfer Cash";
         $page["section"]=null;
         if(!$request->get('user')){
-            $user=[];
+            $user=null;
             return view('transfer_cash',compact('page','user'));
         }
         $userService=new UsersService();
         $user=$userService->getUser($request->get('user'));
-        if($user->id==Auth::user()->id){
-            $user=[];
+        if(!$user||$user->id==Auth::user()->id){
+            $user=null;
         }
         return view('transfer_cash',compact('page','user'));
     }

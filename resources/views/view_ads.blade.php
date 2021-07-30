@@ -5,10 +5,10 @@
         <div class="container">
 
             <div class="d-flex justify-content-between align-items-center">
-                <h2>View Ads</h2>
+                <h2>@lang("strings.View Ads")</h2>
                 <ol>
-                    <li><a href="/">Home</a></li>
-                    <li>View Ads</li>
+                    <li><a href="/">@lang("strings.Home")</a></li>
+                    <li>@lang("strings.View Ads")</li>
                 </ol>
             </div>
 
@@ -30,14 +30,14 @@
                         @endif
                         <p>{{$ad->title}}</p>
                             @if($ad->ad_type=='image')
-                                <button onclick="openAd('{{$ad->slug}}','{{url('/').'/images/ads_images/'.$ad->ad_view}}',{{$ad->max_time}})" class="appointment-btn view-ad-btn mx-0">View Ad</button>
+                                <button onclick="openAd('{{$ad->slug}}','{{url('/').'/images/ads_images/'.$ad->ad_view}}',{{$ad->max_time}})" class="appointment-btn view-ad-btn mx-0">@lang("strings.View Ad")</button>
                             @else
-                                <button onclick="openAd('{{$ad->slug}}','{{$ad->ad_view}}',{{$ad->max_time}})" class="appointment-btn mx-0">View Ad</button>
+                                <button onclick="openAd('{{$ad->slug}}','{{$ad->ad_view}}',{{$ad->max_time}})" class="appointment-btn mx-0">@lang("strings.View Ad")</button>
                             @endif
                             @if(!$ad->link)
-                                <a href="#" class="appointment-btn mx-0 my-2">No Link</a>
+                                <a href="#" class="appointment-btn mx-0 my-2">@lang("strings.No Link")</a>
                             @else
-                                <a onclick="visitAd('{{$ad->slug}}','{{$ad->link}}')" class="appointment-btn view-ad-btn mx-0 my-2" style="cursor: pointer">Visit Link</a>
+                                <a onclick="visitAd('{{$ad->slug}}','{{$ad->link}}')" class="appointment-btn view-ad-btn mx-0 my-2" style="cursor: pointer">@lang("strings.Visit Link")</a>
                             @endif
                     </div>
                 </div>
@@ -74,6 +74,7 @@
         }
         function completeAd(slug,time,click=false) {
             var xhttp = new XMLHttpRequest();
+            xhttp.responseType = 'json';
             var data = new FormData();
             data.append('slug', slug);
             data.append('time', time);
@@ -82,6 +83,17 @@
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     console.log(this.response);
+                    Swal.fire(
+                        '@lang("strings.Success")!',
+                        this.response,
+                        'success'
+                    )
+                }else if(this.readyState == 4){
+                    Swal.fire({
+                        icon: 'error',
+                        title: '@lang("strings.Oops")...',
+                        text: this.response.data
+                    })
                 }
             };
             xhttp.open("POST", "/view-ads", true);

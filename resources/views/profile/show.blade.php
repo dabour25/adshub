@@ -5,10 +5,10 @@
         <div class="container">
 
             <div class="d-flex justify-content-between align-items-center">
-                <h2>Your Profile</h2>
+                <h2>@lang("strings.Your Profile")</h2>
                 <ol>
-                    <li><a href="/">Home</a></li>
-                    <li>Profile</li>
+                    <li><a href="/">@lang("strings.Home")</a></li>
+                    <li>@lang("strings.Profile")</li>
                 </ol>
             </div>
             <div class="container">
@@ -33,11 +33,11 @@
                             <div class="card mt-3">
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                        <h6 class="mb-0 list-text"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe mr-2 icon-inline"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>Affiliate Link:</h6>
+                                        <h6 class="mb-0 list-text"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe mr-2 icon-inline"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>@lang("strings.Affiliate Link"):</h6>
                                         <span class="profile-text">{{url('/').'/auth/register?refid='.auth()->user()->slug}}</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                        <h6 class="mb-0 list-text">Money Transfer Link(Send to user that you receive money from him):</h6>
+                                        <h6 class="mb-0 list-text">@lang("strings.Money Transfer Link")(@lang("strings.Send to user that you receive money from him")):</h6>
                                         <span class="profile-text">{{url('/').'/transfer?user='.auth()->user()->slug}}</span>
                                     </li>
                                     <!--<li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
@@ -61,15 +61,15 @@
                             <div class="card mt-3">
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                        <h6 class="mb-0 list-text">Your Balance:</h6>
-                                        <span class="profile-text">{{auth()->user()->balance}} EGP</span>
+                                        <h6 class="mb-0 list-text">@lang("strings.Your Balance"):</h6>
+                                        <span class="profile-text">{{auth()->user()->balance}} @lang("strings.EGP")</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                        <h6 class="mb-0 list-text">Your Pending Balance:</h6>
-                                        <span class="profile-text">{{auth()->user()->pending_balance}} EGP</span>
+                                        <h6 class="mb-0 list-text">@lang("strings.Your Pending Balance"):</h6>
+                                        <span class="profile-text">{{auth()->user()->pending_balance}} @lang("strings.EGP")</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                        <h6 class="mb-0"><a href="/transactions">View Transactions</a></h6>
+                                        <h6 class="mb-0"><a href="/transactions">@lang("strings.View Transactions")</a></h6>
                                     </li>
                                 </ul>
                             </div>
@@ -79,7 +79,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <h6 class="mb-0">Name</h6>
+                                            <h6 class="mb-0">@lang("strings.Name")</h6>
                                         </div>
                                         <div class="col-sm-9 profile-text">
                                             {{auth()->user()->name}}
@@ -88,7 +88,7 @@
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <h6 class="mb-0">Email</h6>
+                                            <h6 class="mb-0">@lang("strings.Email")</h6>
                                         </div>
                                         <div class="col-sm-9 profile-text">
                                             {{auth()->user()->email}}
@@ -97,7 +97,7 @@
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <h6 class="mb-0">Phone</h6>
+                                            <h6 class="mb-0">@lang("strings.Phone")</h6>
                                         </div>
                                         <div class="col-sm-9 profile-text">
                                             {{auth()->user()->phone}}
@@ -106,7 +106,7 @@
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <h6 class="mb-0">Paypal Account</h6>
+                                            <h6 class="mb-0">@lang("strings.Paypal Account")</h6>
                                         </div>
                                         <div class="col-sm-9 profile-text">
                                             {{auth()->user()->paypal_email}}
@@ -195,7 +195,7 @@
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <a href="/profile/edit" class="btn btn-primary">Edit/Change Password</a>
-                                                <a href="/user-ads" class="btn btn-success">Your Ads</a>
+                                                <a href="/user-ads" class="btn btn-success">@lang("strings.Your Ads")</a>
                                             </div>
                                         </div>
                                     </div>

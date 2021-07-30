@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Session;
 class AdsController extends Controller
 {
     public function index(){
-        $page='Create Ad';
+        $page["title"]='Create Ad';
+        $page["section"]=null;
         return view('create_ad',compact('page'));
     }
 
