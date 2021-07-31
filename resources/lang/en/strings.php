@@ -328,5 +328,10 @@
         "Fez"=>"Fez",
         "Tangier"=>"Tangier",
         "Rabat"=>"Rabat",
+        "Old Password Not Match Our Records"=>"Old Password Not Match Our Records",
+        "Password Changed Successfully"=>"Password Changed Successfully",
+        "Your Data Saved Successfully"=>"Your Data Saved Successfully",
+        "There are no ads available now"=>"There are no ads available now",
+        "Page Not Found"=>"Page Not Found",
     ];
 ?>

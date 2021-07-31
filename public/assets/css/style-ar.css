@@ -1771,3 +1771,7 @@ section {
 .text-danger{
     color: #ef606d !important;
 }
+
+.list-group-flush{
+    padding-right: 0;
+}

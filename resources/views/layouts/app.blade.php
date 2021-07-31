@@ -1,10 +1,11 @@
+<?php $page['section']=$page['section']??null; ?>
 <!DOCTYPE html>
 <html lang="{{app()->getLocale()}}">
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Ads Hub | {{$page['title']}}</title>
+    <title>Ads Hub | {{$page['title']??''}}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -101,10 +102,19 @@
 
 <main id="main">
 
-    @if(session()->has('status'))
+    @if(session()->has('status')&&session()->get('status')!='success')
         <div class="alert alert-{{session()->get('status')}}" style="margin-top: 150px;">
             <p>{{ session()->get('message') }}</p>
         </div>
+        {{session()->forget(['status','message'])}}
+    @elseif(session()->has('status')&&session()->get('status')=='success')
+        <script>
+            Swal.fire(
+                '@lang("strings.Success")!',
+                '{{session()->get('message')}}',
+                'success'
+            )
+        </script>
         {{session()->forget(['status','message'])}}
     @endif
     @yield('content')

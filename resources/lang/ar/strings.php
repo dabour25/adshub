@@ -55,7 +55,7 @@
         "What are the ways to receive money"=>"ما هى طرق إستلام الأموال؟",
         "there are two methods (Vodafone cash EG - Paypal Global)"=>"يوجد طريقتين (فودافون كاش مصر - بايبال للعالم)",
         "What is the earnings from Views and Clicks"=>"ما هى الأرباح من المشاهدات والنقرات؟",
-        "price_text"=>"انها ليست ثابتة ولكن يمكنك الربج بين 0.10 الى 1 جنية مصرى لكل مشاهدة بناءاً على وقت المشاهدة و سعر الإعلان, 0.25 الى  جنية مصرى لكل نقرة",
+        "price_text"=>"انها ليست ثابتة ولكن يمكنك الربج بين 0.10 الى 1 جنية مصرى لكل مشاهدة بناءاً على وقت المشاهدة و سعر الإعلان, 0.25 الى 2 جنية مصرى لكل نقرة",
         "How much price To gain good views/visits"=>"كم يكون السعر المناسب لجمع مشاهدات وزيارات جيدة؟",
         "At Usual 100 EGP can get 70-130 Views, 30-70 Clicks"=>"فى العادى 100 جنية مصرى ممكن يصل الى 70-130 مشاهدة, 30-70 نقرة",
         "If I was Advertiser and Affiliate for watcher at same time"=>"ماذا لو كنت مٌعلن وكنت مٌسوق للمٌشاهد فى نفس الوقت؟",
@@ -328,5 +328,10 @@
         "Fez"=>"فاس",
         "Tangier"=>"طنجة",
         "Rabat"=>"الرباط",
+        "Old Password Not Match Our Records"=>"كلمة السر القديمة لا تماثل المسجلة لدينا",
+        "Password Changed Successfully"=>"تم تغيير كلمة السر بنجاح",
+        "Your Data Saved Successfully"=>"تم حفظ بياناتك بنجاح",
+        "There are no ads available now"=>"لا يوجد إعلانات متاحة الان",
+        "Page Not Found"=>"صفحة غير موجودة",
     ];
 ?>

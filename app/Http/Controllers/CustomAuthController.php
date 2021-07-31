@@ -283,6 +283,8 @@ class CustomAuthController extends Controller
         }else{
             UserData::where('id',$user_data->id)->update($data);
         }
+        Session::put('status', 'success');
+        Session::put('message', __("strings.Your Data Saved Successfully"));
         return back();
     }
 
@@ -324,12 +326,12 @@ class CustomAuthController extends Controller
         $data=$request->except('_token');
         if(!Hash::check($data['old_password'],Auth::user()->getAuthPassword())){
             Session::put('status', 'danger');
-            Session::put('message', 'Old Password Not Match Our Records');
+            Session::put('message', __("strings.Old Password Not Match Our Records"));
             return back();
         }
         User::where('id',Auth::user()->id)->update(['password'=>Hash::make($data['password'])]);
         Session::put('status', 'success');
-        Session::put('message', 'Password Changed Successfully');
+        Session::put('message', __("strings.Password Changed Successfully"));
         return back();
     }
 

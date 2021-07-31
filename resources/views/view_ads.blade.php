@@ -17,6 +17,7 @@
 
     <section class="inner-page services">
         <div class="container">
+            @if(count($ads)>0)
             <div class="row">
                 @foreach($ads as $ad)
                 <div class="col-lg-2 col-md-3 d-flex align-items-stretch" id="ad-{{$ad->slug}}">
@@ -43,6 +44,9 @@
                 </div>
                 @endforeach
             </div>
+            @else
+                <h4>@lang("strings.There are no ads available now")</h4>
+            @endif
         </div>
     </section>
     <script>
@@ -82,7 +86,6 @@
             data.append('_token', "{{ csrf_token() }}");
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    console.log(this.response);
                     Swal.fire(
                         '@lang("strings.Success")!',
                         this.response,
