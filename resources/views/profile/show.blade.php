@@ -115,7 +115,7 @@
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <strong>This Data isn't editable, <a href="/contact">contact admin to change any data</a></strong>
+                                            <strong>@lang("strings.This Data isn't editable"), <a href="/contact">@lang("strings.contact admin to change any data")</a></strong>
                                         </div>
                                     </div>
                                 </div>
@@ -125,31 +125,33 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-sm-12">
-                                                <strong>Fill this data with right data to improve quality of ads/earn more.</strong>
+                                                <strong>@lang("strings.Fill this data with right data to improve quality of ads/earn more").</strong>
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <h6 class="mb-0">Country</h6>
+                                                <h6 class="mb-0">@lang("strings.Country")</h6>
                                             </div>
                                             <div class="col-sm-9 profile-text">
-                                                {{auth()->user()->user_data->country??'--'}}
+                                                <?php $country=auth()->user()->user_data->country??'dash'; ?>
+                                                @lang("strings.".$country)
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <h6 class="mb-0">City</h6>
+                                                <h6 class="mb-0">@lang("strings.City")</h6>
                                             </div>
                                             <div class="col-sm-9 profile-text">
-                                                {{auth()->user()->user_data->city??'--'}}
+                                                <?php $city=auth()->user()->user_data->city??'dash'; ?>
+                                                @lang("strings.".$city)
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <h6 class="mb-0">Address</h6>
+                                                <h6 class="mb-0">@lang("strings.Address")</h6>
                                             </div>
                                             <div class="col-sm-9 profile-text">
                                                 {{auth()->user()->user_data->address??'--'}}
@@ -158,7 +160,7 @@
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <h6 class="mb-0">Birth Date</h6>
+                                                <h6 class="mb-0">@lang("strings.Birth Date")</h6>
                                             </div>
                                             <div class="col-sm-9 profile-text">
                                                 {{auth()->user()->user_data->age??'--'}}
@@ -167,25 +169,27 @@
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <h6 class="mb-0">Nationality</h6>
+                                                <h6 class="mb-0">@lang("strings.Nationality")</h6>
                                             </div>
                                             <div class="col-sm-9 profile-text">
-                                                {{auth()->user()->user_data->nationality??'--'}}
+                                                <?php $nationality=auth()->user()->user_data->nationality??'dash'; ?>
+                                                @lang("strings.".$nationality)
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <h6 class="mb-0">Gender</h6>
+                                                <h6 class="mb-0">@lang("strings.Gender")</h6>
                                             </div>
                                             <div class="col-sm-9 profile-text">
-                                                {{auth()->user()->user_data->gender??'--'}}
+                                                <?php $gender=auth()->user()->user_data->gender??'dash'; ?>
+                                                @lang("strings.".$gender)
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <h6 class="mb-0">Interests</h6>
+                                                <h6 class="mb-0">@lang("strings.Interests")</h6>
                                             </div>
                                             <div class="col-sm-9 profile-text">
                                                 {{auth()->user()->user_data->interests??'--'}}
@@ -194,7 +198,7 @@
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-12">
-                                                <a href="/profile/edit" class="btn btn-primary">Edit/Change Password</a>
+                                                <a href="/profile/edit" class="btn btn-primary">@lang("strings.Edit/Change Password")</a>
                                                 <a href="/user-ads" class="btn btn-success">@lang("strings.Your Ads")</a>
                                             </div>
                                         </div>

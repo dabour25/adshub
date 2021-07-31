@@ -234,7 +234,8 @@ class CustomAuthController extends Controller
     }
 
     public function profileEdit(){
-        $page='Edit Profile';
+        $page["title"]='Edit Profile';
+        $page["section"]="user";
         $user_data=UserData::where('user_id',Auth::user()->id)->first();
         if(!$user_data){
             $user_data['country']=$user_data['city']=$user_data['age']=$user_data['nationality']
