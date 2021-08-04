@@ -18,7 +18,7 @@ class CreateUserDataTable extends Migration
             $table->bigInteger('user_id',false,true);
             $table->string('country',50)->nullable();
             $table->string('city',50)->nullable();
-            $table->string('address',50)->nullable();
+            $table->text('address')->nullable();
             $table->date('age')->nullable();
             $table->string('nationality')->nullable();
             $table->enum('gender',['male','female'])->nullable();

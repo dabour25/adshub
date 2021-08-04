@@ -7,6 +7,7 @@ use App\Models\Request;
 use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class RequestsService{
@@ -69,34 +70,41 @@ class RequestsService{
         }
     }
     public function approveRequest($data){
-        $request=Request::where('request_id',$data['request_id'])->first();
-        $request->request_status=1;
-        $request->save();
-        if($request['reason']=='deposit'){
-            if($data['amount']==0||empty($data['amount'])){
-                return false;
-            }
-            if($data['amount']<$request['amount']){
+        try{
+            DB::beginTransaction();
+            $request=Request::where('request_id',$data['request_id'])->first();
+            if($request['reason']=='deposit'){
+                if($data['amount']==0||empty($data['amount'])){
+                    return false;
+                }
+                if($data['amount']<$request['amount']){
+                    $transactionService=new TransactionsService();
+                    $transaction['comment']="Successful Deposit";
+                    $transaction['user_id']=$request['user_id'];
+                    $transaction['amount']=$data['amount'];
+                    $transaction['transaction_type']="deposit";
+                    $transactionService->createTransaction($transaction);
+                    User::where('id',Auth::user()->id)->update(['pending_balance'=>0]);
+                }else{
+                    return false;
+                }
+            }else{
                 $transactionService=new TransactionsService();
-                $transaction['comment']="Successful Deposit";
+                $transaction['comment']="Successful Withdraw";
                 $transaction['user_id']=$request['user_id'];
-                $transaction['amount']=$data['amount'];
-                $transaction['transaction_type']="deposit";
+                $transaction['amount']=$request['amount'];
+                $transaction['transaction_type']="withdraw";
                 $transactionService->createTransaction($transaction);
                 User::where('id',Auth::user()->id)->update(['pending_balance'=>0]);
-            }else{
-                return false;
             }
-        }else{
-            $transactionService=new TransactionsService();
-            $transaction['comment']="Successful Withdraw";
-            $transaction['user_id']=$request['user_id'];
-            $transaction['amount']=$request['amount'];
-            $transaction['transaction_type']="withdraw";
-            $transactionService->createTransaction($transaction);
-            User::where('id',Auth::user()->id)->update(['pending_balance'=>0]);
+            $request->request_status=1;
+            $request->save();
+            DB::commit();
+            return true;
+        }catch (\Exception $e){
+            DB::rollBack();
+            return false;
         }
-        return true;
     }
     public function cancelRequest($data){
         $request=Request::where('request_id',$data['request_id'])->first();

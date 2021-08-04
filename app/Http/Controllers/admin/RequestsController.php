@@ -31,7 +31,7 @@ class RequestsController extends Controller
         $response=$requestsService->approveRequest($data);
         if(!$response){
             session()->push('m','danger');
-            session()->push('m','You Must fill amount and less than request amount');
+            session()->push('m','You Must fill amount and less than request amount - or system fail');
             return back();
         }
         session()->push('m','success');

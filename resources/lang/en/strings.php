@@ -104,7 +104,7 @@
         "New Balance"=>"New Balance",
         "Date"=>"Date",
         "Password Not Match our records"=>"Password Not Match our records",
-        "User Not Found or You can't send money to yourself">"User Not Found or You can't send money to yourself",
+        "User Not Found or You can't send money to yourself"=>"User Not Found or You can't send money to yourself",
         "Make Sure that user name is right before sending"=>"Make Sure that user name is right before sending",
         "Send Money to"=>"Send Money to",
         "Amount in EGP"=>"Amount in EGP",
