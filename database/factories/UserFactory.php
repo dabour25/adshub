@@ -24,12 +24,28 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $name=$this->faker->name();
+        if(rand(0,1)==0){
+            $affiliate=rand(1,User::count());
+        }else{
+            $affiliate=null;
+        }
+        $paypal=$this->faker->randomElement([$this->faker->unique()->safeEmail(),null]);
+        if(!$paypal){
+            $phone="010".rand(10000000,99999999);
+        }else{
+            $phone=$this->faker->randomElement(['011','010','012','015']).rand(10000000,99999999);
+        }
         return [
-            'name' => $this->faker->name(),
+            'name' => $name,
+            'slug'=>Str::slug(substr($name,0,3).'-'.Str::random(6).rand(100,999)),
             'email' => $this->faker->unique()->safeEmail(),
+            'paypal_email' => $paypal,
+            'phone'=>$phone,
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
+            'affiliate_id'=>$affiliate,
         ];
     }
 

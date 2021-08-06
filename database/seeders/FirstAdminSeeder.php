@@ -17,8 +17,10 @@ class FirstAdminSeeder extends Seeder
      */
     public function run()
     {
-        $user=User::create($this->admin_data());
-        UserData::create(['user_id'=>$user->id]);
+        if(User::count()==0){
+            $user=User::create($this->admin_data());
+            UserData::create(['user_id'=>$user->id]);
+        }
     }
     public function admin_data(){
         return [
