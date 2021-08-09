@@ -32,9 +32,9 @@ class UserFactory extends Factory
         }
         $paypal=$this->faker->randomElement([$this->faker->unique()->safeEmail(),null]);
         if(!$paypal){
-            $phone="010".rand(10000000,99999999);
+            $phone="010".$this->faker->unique()->numberBetween(10000000,99999999);
         }else{
-            $phone=$this->faker->randomElement(['011','010','012','015']).rand(10000000,99999999);
+            $phone=$this->faker->randomElement(['011','010','012','015']).$this->faker->unique()->numberBetween(10000000,99999999);
         }
         return [
             'name' => $name,

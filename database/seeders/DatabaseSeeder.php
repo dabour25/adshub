@@ -15,19 +15,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
         $this->call([
             FirstAdminSeeder::class,
         ]);
         //Tests Only
-//        User::factory(10000)->create();
-//        UserData::factory(10000)->create();
-//        $this->call([
-//            FixUserDataSeeder::class,
-//        ]);
-        for($i=0;$i<10000;$i++){
+        //User::factory(100000)->create();
+        //UserData::factory(100000)->create();
+        /*$this->call([
+            FixUserDataSeeder::class,
+        ]);*/
+        for($i=0;$i<25000;$i++){
             $this->call([
-                CreateRequestsSeeder::class,
+                //CreateRequestsSeeder::class,
+                CreateAdsSeeder::class,
+                //CreateViewsSeeder::class,
             ]);
         }
     }

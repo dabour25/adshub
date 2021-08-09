@@ -110,32 +110,29 @@ class AdsService{
         return $availableAds;
     }
     private function priceCalculator($available_cost,$time,$click){
-        if($available_cost>1){
+        if($available_cost>1&&$time!=0){
             $total_price=(0.01+(rand(0,30)/100))*($time/2);
-        }else{
-            $total_price=$available_cost;
-        }
-        if($click&&($available_cost>3)){
-            $total_price=0.25+(rand(0,2*10)/10);
+        }elseif($click&&($available_cost>3)){
+            $total_price=0.25+(rand(0,20)/10);
         }else{
             $total_price=$available_cost;
         }
         return $total_price;
     }
     public function earnAd($data){
-        $ad=Ads::where('slug',$data['slug'])->first();
-        if(!$ad){
-            return ["data"=>__("strings.Ad Not Found"),"status"=>404];
-        }
-        $advertiser=User::where('id',$ad->by_user)->first();
-        $advertiser_aff=User::where('id',$advertiser->affiliate_id)->first();
-        $user_aff=User::where('id',Auth::user()->affiliate_id)->first();
-        $price=$this->priceCalculator($ad->available_cost,$data['time'],$data['click']);
-        if($price==0){
-            return ["data"=>__("strings.Sorry,this ad run out of money"),"status"=>406];
-        }
-        $user_price=40*$price/100;
         try{
+            $ad=Ads::where('slug',$data['slug'])->first();
+            if(!$ad){
+                return ["data"=>__("strings.Ad Not Found"),"status"=>404];
+            }
+            $advertiser=User::where('id',$ad->by_user)->first();
+            $advertiser_aff=User::where('id',$advertiser->affiliate_id)->first();
+            $user_aff=User::where('id',Auth::user()->affiliate_id)->first();
+            $price=$this->priceCalculator($ad->available_cost,$data['time'],$data['click']);
+            if($price==0){
+                return ["data"=>__("strings.Sorry,this ad run out of money"),"status"=>406];
+            }
+            $user_price=40*$price/100;
             DB::beginTransaction();
             $transactionService=new TransactionsService();
             $transaction['amount']=$user_price;

@@ -24,7 +24,6 @@ class CreateRequestsSeeder extends Seeder
         $usersCount=User::count();
         $selectedUser=rand(1,$usersCount);
         $selectedUser=User::where('id',$selectedUser)->first();
-        $requestsService=new RequestsService();
         //Create Random Request
         if($selectedUser){
             $request=null;
@@ -57,7 +56,7 @@ class CreateRequestsSeeder extends Seeder
             //Create Random admin Response
             if($request!=null){
                 $randApprove=rand(0,9);
-                if($randApprove<5){
+                if($randApprove<7){
                     if($request['reason']=='deposit'){
                         $transactionService=new TransactionsService();
                         $transaction['comment']="Successful Deposit";
@@ -78,7 +77,7 @@ class CreateRequestsSeeder extends Seeder
                     $request->request_status=1;
                     $request->seen=1;
                     $request->save();
-                }elseif ($randApprove<8){
+                }elseif ($randApprove<9){
                     $request->request_status=2;
                     $request->seen=1;
                     $request->save();
